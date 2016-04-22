@@ -1,0 +1,17 @@
+<md-card>
+  <md-toolbar>
+    <div class="md-toolbar-tools">
+      <div flex="85">
+        <h1 class="header">{{main.user.first_name}} {{main.user.last_name}}</h1>
+      </div>
+      <div flex="10">
+        <md-button class="md-raised" href="#photosOfUser/{{main.user.id}}">Photos</md-button>
+      </div>
+    </div>
+  </md-toolbar>
+  <md-card-title-text>
+    <p class="md-subhead"><b>Descirption:</b> {{main.user.description}}</p>
+    <p class="md-subhead"><b>Occupation:</b> {{main.user.occupation}}</p>
+    <p class="md-subhead"><b>Location:</b> {{main.user.location}}</p>
+  </md-card-title-text>
+</md-card>

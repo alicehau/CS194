@@ -1,0 +1,28 @@
+<md-toolbar>
+  <div class="md-toolbar-tools">
+    <div flex="10">
+    </div>
+
+    <div flex="80">
+      <h1 class="header">Photos</h1>
+    </div>
+    <div flex="10">
+    </div>
+  </div>
+</md-toolbar>
+
+<div ng-repeat="photo in main.userPhotos">
+  <md-card>
+    <img ng-src="{{main.computePhotoSrc(photo.file_name)}}" />
+    <p class="photo-date">Posted on {{photo.date_time}} by {{main.user.first_name}} {{main.user.last_name}}</p>
+    <md-list>
+      <md-list-item ng-repeat="comment in photo.comments">
+        <div class="md-list-item-text" layout="column">
+          <span><a href="#users/{{comment.user_id}}">{{comment.user.first_name}} {{comment.user.last_name}}</a> - {{comment.date_time}}</span>
+          <p>{{comment.comment}}</p>
+        </div>
+      </md-list-item>
+    </md-list>
+  </md-card>
+
+</div>
