@@ -1,0 +1,22 @@
+<h1 class="md-display-1 user-title">Following</h1>
+
+<md-list layout="row">
+  <md-list-item ng-repeat="followee in main.following">
+    <span class="md-list-item-text">
+      <span>{{followee.first_name}}</span>
+    </span>
+  </md-list-item>
+</md-list>
+
+
+<md-list layout="column">
+  <md-list-item ng-repeat="article in main.followeeArticles">
+    <span class="md-list-item-text">
+      <span>{{article.title}}</span>
+    </span>
+  </md-list-item>
+</md-list>
+
+
+<a ng-click="main.chevronClick(-1)"><i class="material-icons">chevron_left</i></a>
+<a ng-click="main.chevronClick(1)"><i class="material-icons">chevron_right</i></a>

@@ -27,33 +27,11 @@ cs142App.config(['$routeProvider',
 cs142App.controller('MainController', ['$scope', '$location',
   function($scope, $location) {
     $scope.main = {};
-    $scope.main.versionNumber = -1.0;
-    $scope.main.title = {
-      title: 'Users'
-    };
 
+    //store any shared variables between controllers
     $scope.shared = {};
-    $scope.shared.advancedFeaturesToString = function() {
-      if ($scope.shared.advancedFeatures) {
-        $location.hash("advancedFeatureFlagOn");
-        return "Disable Advanced Features";
-      } else {
-        $location.hash("");
-        return "Enable Advanced Features";
-      }
-    };
-
-    //parse the url and if the featureFlag hash is present, turn advnaced features on
-    $scope.shared.checkFeatureFlag = function(){
-      if ($location.hash() === 'advancedFeatureFlagOn'){
-        $scope.shared.advancedFeatures = true;
-      }else{
-        $scope.shared.advancedFeatures = false;
-      }
-    };
-
-    $scope.shared.toolbarText = "";
-
+    //store the logged in user
+    $scope.shared.currentUser = window.noozModels.loggedInUserModel();
 
     /*
      * FetchModel - Fetch a model from the web server.
@@ -83,12 +61,5 @@ cs142App.controller('MainController', ['$scope', '$location',
     };
 
     $scope.FetchModel("http://localhost:3000/test/info", $scope.main.callBack);
-
-    // var cs142models = require('./modelData/photoApp.js').cs142models;
-    // $scope.main.user = window.noozModels.loggedInUserModel;
-
-    console.log("main controller ");
-    console.log(window.noozModels.loggedInUserModel().followers);
-
   }
 ]);

@@ -56,6 +56,7 @@
   userFollowers.push(createUser("Alice", "Hau", "a_hau", "weak", "ahau", []));
   userFollowers.push(createUser("Matt", "Leong", "m_leong", "weak", "mleong", []));
   userFollowers.push(createUser("Kirby", "Gee", "k_gee", "weak", "kgee", []));
+  userFollowers.push(createUser("Yogi", "Dixie", "y_dixie", "weak", "ydixie", []));
 
   //create an Article
   function createArticle(reposter, url, comment, title){
@@ -76,6 +77,8 @@
   createArticle(userFollowers[1], "www.matt.com", "red nose", "How to love and own your asain glow");
   //reposted by Kirby
   createArticle(userFollowers[2], "www.kirby.com", "Arm day", "Why would you ever work legs?");
+  //reposted by Yogi
+  createArticle(userFollowers[3], "www.yogi.com", "Bark", "Bark all day");
 
   //the user that is logged in
   var loggedInUser = createUser("George", "Jabroni", "g_jabroni", "weak", "gjabroni", userFollowers);
