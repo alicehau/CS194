@@ -24,7 +24,6 @@ cs142App.config(['$routeProvider',
 ]);
 
 
-
 cs142App.controller('MainController', ['$scope', '$location',
   function($scope, $location) {
     $scope.main = {};
@@ -84,6 +83,12 @@ cs142App.controller('MainController', ['$scope', '$location',
     };
 
     $scope.FetchModel("http://localhost:3000/test/info", $scope.main.callBack);
+
+    // var cs142models = require('./modelData/photoApp.js').cs142models;
+    // $scope.main.user = window.noozModels.loggedInUserModel;
+
+    console.log("main controller ");
+    console.log(window.noozModels.loggedInUserModel().followers);
 
   }
 ]);
