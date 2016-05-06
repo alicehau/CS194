@@ -1,0 +1,21 @@
+#listContainer{
+  width: 100%;
+  overflow-x:scroll;
+  overflow-y:hidden;
+}
+.headshot{
+  width: 60px;
+  height: 60px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 50%;
+}
+.nameText{
+  text-align: center;
+}
+*:focus {
+    outline:none;
+}
+.hover{
+  background-color: yellow;
+}

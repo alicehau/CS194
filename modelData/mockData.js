@@ -39,24 +39,25 @@
 (function() {
   // Create init users.
 
-  function createUser(first_name, last_name, user_name, pw, id, followers){
+  function createUser(first_name, last_name, user_name, pw, id, following){
     var user = {
       first_name: first_name,
       last_name: last_name,
       user_name: user_name,
       pw: pw,
       id: id,
-      followers: followers,//list of Users
+      following: following,//list of Users
       reposted_articles: []//list of articles
     };
     return user;
   }
   //list of other users George follows
-  var userFollowers = [];
-  userFollowers.push(createUser("Alice", "Hau", "a_hau", "weak", "ahau", []));
-  userFollowers.push(createUser("Matt", "Leong", "m_leong", "weak", "mleong", []));
-  userFollowers.push(createUser("Kirby", "Gee", "k_gee", "weak", "kgee", []));
-  userFollowers.push(createUser("Yogi", "Dixie", "y_dixie", "weak", "ydixie", []));
+  var userFollowering = [];
+  userFollowering.push(createUser("Alice", "Hau", "a_hau", "weak", "ahau", []));
+  userFollowering.push(createUser("Matt", "Leong", "m_leong", "weak", "mleong", []));
+  userFollowering.push(createUser("Kirby", "Gee", "k_gee", "weak", "kgee", []));
+  userFollowering.push(createUser("Yogi", "Dixie", "y_dixie", "weak", "ydixie", []));
+  userFollowering.push(createUser("Yogi2", "Dixie2", "y_dixie2", "weak", "ydixie2", []));
 
   //create an Article
   function createArticle(reposter, url, comment, title){
@@ -71,17 +72,17 @@
   }
 
   //reposted by Alice
-  createArticle(userFollowers[0], "www.alice.com", "I love small arms", "13 reasons you should love your small arms");
-  createArticle(userFollowers[0], "www.alice2.com", "Musuem Maniac", "Why I love the most boring thing in the world: musuems");
+  createArticle(userFollowering[0], "www.alice.com", "I love small arms", "13 reasons you should love your small arms");
+  createArticle(userFollowering[0], "www.alice2.com", "Musuem Maniac", "Why I love the most boring thing in the world: musuems");
   //reposted by Matt
-  createArticle(userFollowers[1], "www.matt.com", "red nose", "How to love and own your asain glow");
+  createArticle(userFollowering[1], "www.matt.com", "red nose", "How to love and own your asain glow");
   //reposted by Kirby
-  createArticle(userFollowers[2], "www.kirby.com", "Arm day", "Why would you ever work legs?");
+  createArticle(userFollowering[2], "www.kirby.com", "Arm day", "Why would you ever work legs?");
   //reposted by Yogi
-  createArticle(userFollowers[3], "www.yogi.com", "Bark", "Bark all day");
+  createArticle(userFollowering[3], "www.yogi.com", "Bark", "Bark all day");
 
   //the user that is logged in
-  var loggedInUser = createUser("George", "Jabroni", "g_jabroni", "weak", "gjabroni", userFollowers);
+  var loggedInUser = createUser("George", "Jabroni", "g_jabroni", "weak", "gjabroni", userFollowering);
 
   var loggedInUserModel = function() {
     return loggedInUser;
@@ -90,7 +91,6 @@
   var noozModels = {
     loggedInUserModel: loggedInUserModel
   };
-  console.log("mocking data");
 
   if( typeof exports !== 'undefined' ) {
     // We're being loaded by the Node.js module loader ('require') so we use its

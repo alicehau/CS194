@@ -1,13 +1,16 @@
 <h1 class="md-display-1 user-title">Following</h1>
 
+<div id="listContainer">
 <md-list layout="row">
   <md-list-item ng-repeat="followee in main.following">
-    <span class="md-list-item-text">
-      <span>{{followee.first_name}}</span>
+    <span class="md-list-item-text" ng-class="main.getClassNameForHeadshot($index)" ng-click="main.followingClickHandler($index)" ng-mouseover="main.followingHover($index)">
+      <img ng-src="images/Calum.png" class="headshot"/>
+      <div class="nameText">{{followee.first_name}}</div>
+      <div class="nameText">{{followee.last_name}}</div>
     </span>
   </md-list-item>
 </md-list>
-
+</div>
 
 <md-list layout="column">
   <md-list-item ng-repeat="article in main.followeeArticles">
