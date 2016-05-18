@@ -14,27 +14,30 @@
 </div>
 
 <!-- Create the individual article cards -->
-<md-list layout="column">
-  <md-list-item ng-repeat="article in main.followeeArticles" class="article-card">
-    <!-- <span class="md-list-item-text"> -->
-      <div class="article-title-container">
-        <span>{{article.title}}</span>
-        <div class="underline"/>
-      </div>
-      <div class="flexbox-container article-information-container">
-        <div class="article-thumbnail-container">
-          <img ng-src="images/Calum.png" class="article-thumbnail"/>
-        </div>
-        <div class="article-comment-container">
-          <i class="material-icons" md-18>format_quote</i>
-          <span>{{article.comment}}</span>
-          <i class="material-icons" md-18>format_quote</i>
-        </div>
-      </div>
+<md-card ng-repeat="article in main.followeeArticles">
+  <img ng-src="images/Stanford.jpg" class="md-card-image article-image" alt="Washed Out">
+  <md-card-title>
+    <md-card-title-text>
+      <span class="md-headline">{{article.title}}</span>
+    </md-card-title-text>
+  </md-card-title>
 
-    <!-- </span> -->
-  </md-list-item>
-</md-list>
+  <md-card-content>
+    <i class="material-icons" md-18>format_quote</i>
+    <span>
+      {{article.comment}}
+    </span>
+    <i class="material-icons" md-18>format_quote</i>
+  </md-card-content>
 
+  <md-card-actions layout="row" layout-align="end center">
+      <md-button class="md-icon-button" aria-label="Favorite">
+        <md-icon><i class="material-icons">clear</i></md-icon>
+      </md-button>
+      <md-button class="md-icon-button" aria-label="Share">
+        <md-icon><i class="material-icons">favorite</i></md-icon>
+      </md-button>
+  </md-card-actions>
+</md-card>
 <!-- <a ng-click="main.chevronClick(-1)"><i class="material-icons">chevron_left</i></a>
 <a ng-click="main.chevronClick(1)"><i class="material-icons">chevron_right</i></a> -->
