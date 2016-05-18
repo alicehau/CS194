@@ -1,4 +1,4 @@
-#listContainer{
+#list-container{
   width: 100%;
   overflow-x:scroll;
   overflow-y:hidden;
@@ -10,12 +10,47 @@
   overflow: hidden;
   border-radius: 50%;
 }
-.nameText{
+.name-text{
   text-align: center;
 }
 *:focus {
     outline:none;
 }
-.hover{
+.follower:hover{
+  background-color: grey;
+}
+.follower {
+  background-color: none;
+}
+.highlight{
   background-color: yellow;
+}
+
+/*Relative to the article cards*/
+md-list-item.md-no-proxy{
+  padding: 5px;
+}
+.flexbox-container {
+	display: -ms-flex;
+	display: -webkit-flex;
+	display: flex;
+}
+.flexbox-container > div {
+	padding: 5px;
+}
+.article-thumbnail-container{
+  float: left;
+
+}
+.article-thumbnail{
+  width: 80px;
+  height: 80px;
+  position: relative;
+  overflow: hidden;
+}
+.article-information-container{
+  font-weight: bold;
+}
+.underline{
+  border-bottom: 1px solid #aaa;
 }

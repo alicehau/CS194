@@ -10,6 +10,12 @@
        url(https://example.com/MaterialIcons-Regular.ttf) format('truetype');
 }
 
+md-sidenav.md-locked-open {
+  width: 400px;
+  min-width: 400px;
+  max-width: 400px;
+}
+
 .material-icons {
   font-family: 'Material Icons';
   font-weight: normal;

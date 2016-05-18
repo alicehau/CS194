@@ -1,25 +1,40 @@
 <h1 class="md-display-1 user-title">Following</h1>
 
-<div id="listContainer">
-<md-list layout="row">
-  <md-list-item ng-repeat="followee in main.following">
-    <span class="md-list-item-text" ng-class="main.getClassNameForHeadshot($index)" ng-click="main.followingClickHandler($index)" ng-mouseover="main.followingHover($index)">
-      <img ng-src="images/Calum.png" class="headshot"/>
-      <div class="nameText">{{followee.first_name}}</div>
-      <div class="nameText">{{followee.last_name}}</div>
-    </span>
-  </md-list-item>
-</md-list>
+<!-- Create the horizontal list of following users -->
+<div id="list-container">
+  <md-list layout="row">
+    <md-list-item ng-repeat="followee in main.following">
+      <span class="md-list-item-text follower" ng-click="main.followingClickHandler($index)" ng-class="main.highlight($index)">
+        <img ng-src="images/Calum.png" class="headshot"/>
+        <div class="name-text">{{followee.first_name}}</div>
+        <div class="name-text">{{followee.last_name}}</div>
+      </span>
+    </md-list-item>
+  </md-list>
 </div>
 
+<!-- Create the individual article cards -->
 <md-list layout="column">
-  <md-list-item ng-repeat="article in main.followeeArticles">
+  <md-list-item ng-repeat="article in main.followeeArticles" class="article-card">
     <span class="md-list-item-text">
-      <span>{{article.title}}</span>
+      <div class="article-information-container">
+        <span>{{article.title}}</span>
+        <div class="underline"/>
+      </div>
+      <div class="flexbox-container">
+        <div class="article-thumbnail-container">
+          <img ng-src="images/Calum.png" class="article-thumbnail"/>
+        </div>
+        <div class="article-information-container">
+          <span>{{article.title}}</span>
+          <div class="underline"/>
+        </div>
+      </div>
+
     </span>
   </md-list-item>
 </md-list>
 
 
-<a ng-click="main.chevronClick(-1)"><i class="material-icons">chevron_left</i></a>
-<a ng-click="main.chevronClick(1)"><i class="material-icons">chevron_right</i></a>
+<!-- <a ng-click="main.chevronClick(-1)"><i class="material-icons">chevron_left</i></a>
+<a ng-click="main.chevronClick(1)"><i class="material-icons">chevron_right</i></a> -->
