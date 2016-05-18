@@ -1,0 +1,74 @@
+<h1>{{main.errorMessage}}</h1>
+
+<md-card>
+  <md-card-title>
+     <md-card-title-text>
+       <span class="md-headline">Login</span>
+     </md-card-title-text>
+   </md-card-title>
+  <div layout-gt-sm="row">
+    <div flex="30">
+      <md-input-container class="md-block" flex-gt-sm>
+        <label>Email</label>
+        <input ng-model="main.userEmail">
+      </md-input-container>
+    </div>
+    <div flex="30">
+      <md-input-container class="md-block" flex-gt-sm>
+        <label>Password</label>
+        <input ng-model="main.userPassword" type="password">
+      </md-input-container>
+    </div>
+    <div flex="10">
+      <md-button class="md-raised" ng-click="main.login()">Login</md-button>
+    </div>
+  </div>
+</md-card>
+
+
+<md-card>
+  <md-card-title>
+     <md-card-title-text>
+     {{main.message}}
+       <span class="md-headline">Register</span>
+     </md-card-title-text>
+   </md-card-title>
+
+  <div layout-gt-sm="column">
+    <div flex="30">
+      <md-input-container class="md-block" flex-gt-sm>
+        <label>First Name</label>
+        <input ng-model="main.newUser.first_name">
+      </md-input-container>
+    </div>
+    <div flex="30">
+      <md-input-container class="md-block" flex-gt-sm>
+        <label>Last Name</label>
+        <input ng-model="main.newUser.last_name">
+      </md-input-container>
+    </div>
+    <div flex="30">
+      <md-input-container class="md-block" flex-gt-sm>
+        <label>Email</label>
+        <input ng-model="main.newUser.email">
+      </md-input-container>
+    </div>
+    <div flex="30">
+      <md-input-container class="md-block" flex-gt-sm>
+        <label>Password</label>
+        <input ng-model="main.newUser.password">
+      </md-input-container>
+    </div>
+
+    <div flex="30">
+      <md-input-container class="md-block" flex-gt-sm>
+        <label>Re-enter password</label>
+        <input type="password" ng-model="main.newUser.passwordReentry">
+      </md-input-container>
+    </div>
+
+    <div flex="10">
+      <md-button class="md-raised md-primary" ng-click="main.register()">Register Me</md-button>
+    </div>
+  </div>
+</md-card>
