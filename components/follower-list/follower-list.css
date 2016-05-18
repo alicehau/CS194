@@ -28,7 +28,7 @@
 
 /*Relative to the article cards*/
 md-list-item.md-no-proxy{
-  padding: 5px;
+  padding: 8px;
 }
 .flexbox-container {
 	display: -ms-flex;
@@ -48,9 +48,18 @@ md-list-item.md-no-proxy{
   position: relative;
   overflow: hidden;
 }
-.article-information-container{
+.article-title-container{
+  width: 100%;
   font-weight: bold;
 }
+.article-comment-container{
+  font-weight: normal;
+}
+.article-information-container{
+  padding: 5px;
+}
 .underline{
+  width: 100%
+  height: 2px;
   border-bottom: 1px solid #aaa;
 }

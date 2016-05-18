@@ -16,25 +16,25 @@
 <!-- Create the individual article cards -->
 <md-list layout="column">
   <md-list-item ng-repeat="article in main.followeeArticles" class="article-card">
-    <span class="md-list-item-text">
-      <div class="article-information-container">
+    <!-- <span class="md-list-item-text"> -->
+      <div class="article-title-container">
         <span>{{article.title}}</span>
         <div class="underline"/>
       </div>
-      <div class="flexbox-container">
+      <div class="flexbox-container article-information-container">
         <div class="article-thumbnail-container">
           <img ng-src="images/Calum.png" class="article-thumbnail"/>
         </div>
-        <div class="article-information-container">
-          <span>{{article.title}}</span>
-          <div class="underline"/>
+        <div class="article-comment-container">
+          <i class="material-icons" md-18>format_quote</i>
+          <span>{{article.comment}}</span>
+          <i class="material-icons" md-18>format_quote</i>
         </div>
       </div>
 
-    </span>
+    <!-- </span> -->
   </md-list-item>
 </md-list>
-
 
 <!-- <a ng-click="main.chevronClick(-1)"><i class="material-icons">chevron_left</i></a>
 <a ng-click="main.chevronClick(1)"><i class="material-icons">chevron_right</i></a> -->
