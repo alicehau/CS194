@@ -1,6 +1,13 @@
 'use strict';
 
-var cs142App = angular.module('cs142App', ['ngRoute', 'ngMaterial']);
+var cs142App = angular.module('cs142App', ['ngRoute', 'ngMaterial', 'firebase']);
+
+cs142App.factory("Auth", ["$firebaseAuth",
+  function($firebaseAuth) {
+    var ref = new Firebase("https://nooz.firebaseio.com");
+    return $firebaseAuth(ref);
+  }
+]);
 
 cs142App.config(['$routeProvider',
   function($routeProvider) {
@@ -17,6 +24,14 @@ cs142App.config(['$routeProvider',
       templateUrl: 'components/user-photos/user-photosTemplate.html',
       controller: 'UserPhotosController'
     }).
+    when('/addArticle', {
+      templateUrl: 'components/article-post/article-postTemplate.html',
+      controller: 'ArticlePostController'
+    }).
+    when('/login-register', {
+      templateUrl: 'components/login-register/login-registerTemplate.html',
+      controller: 'LoginRegisterController'
+    }).
     otherwise({
       redirectTo: '/users'
     });
@@ -24,7 +39,7 @@ cs142App.config(['$routeProvider',
 ]);
 
 
-cs142App.controller('MainController', ['$scope', '$location',
+cs142App.controller('MainController', ['$scope', '$location', 
   function($scope, $location) {
     $scope.main = {};
 

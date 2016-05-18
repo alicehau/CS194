@@ -32,6 +32,19 @@
   <script src="components/follower-list/follower-listController.js"></script>
   <link rel="stylesheet" type="text/css" href="components/follower-list/follower-list.css" />
 
+  <script src="components/article-post/article-postController.js"></script>
+    <link rel="stylesheet" type="text/css" href="components/article-post/article-post.css" />
+
+  <script src="components/login-register/login-registerController.js"></script>
+    <link rel="stylesheet" type="text/css" href="components/login-register/login-register.css" />
+
+  <!-- AngularJS -->
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+  <!-- Firebase -->
+  <script src="https://cdn.firebase.com/js/client/2.2.4/firebase.js"></script>
+  <!-- AngularFire -->
+  <script src="https://cdn.firebase.com/libs/angularfire/1.2.0/angularfire.min.js"></script>
+
   <!-- jQuery -->
   <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
   <script src="https://code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script>
@@ -46,6 +59,10 @@
     <h2>
       <span>Nooz</span>
     </h2>
+      <a href="#/addArticle">Add Article</a>
+            <md-button class="md-raised" ng-click="main.login()">Login</md-button>
+
+
   </md-toolbar>
 
   <div class="container" flex layout="row">
