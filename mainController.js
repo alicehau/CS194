@@ -39,15 +39,25 @@ cs142App.config(['$routeProvider',
 ]);
 
 
-cs142App.controller('MainController', ['$scope', '$location', 
-  function($scope, $location) {
+cs142App.controller('MainController', ['$scope', '$location', 'Auth',
+  function($scope, $location, Auth) {
     $scope.main = {};
+
+
 
     //store any shared variables between controllers
     $scope.shared = {};
     //store the logged in user
     $scope.shared.currentUser = window.noozModels.loggedInUserModel();
 
+
+
+   $scope.auth = Auth;
+
+    // any time auth status updates, add the user data to scope
+    $scope.auth.$onAuth(function(authData) {
+      $scope.shared.authData = authData;
+    });
     /*
      * FetchModel - Fetch a model from the web server.
      *   url - string - The URL to issue the GET request.
