@@ -1,6 +1,6 @@
 'use strict';
 
-var cs142App = angular.module('cs142App', ['ngRoute', 'ngMaterial', 'firebase']);
+var cs142App = angular.module('cs142App', ['ngRoute', 'ngMaterial', 'firebase', 'ngSanitize']);
 
 cs142App.factory("Auth", ["$firebaseAuth",
   function($firebaseAuth) {
@@ -31,6 +31,10 @@ cs142App.config(['$routeProvider',
     when('/login-register', {
       templateUrl: 'components/login-register/login-registerTemplate.html',
       controller: 'LoginRegisterController'
+    }).
+    when('/viewArticle', {
+      templateUrl: 'components/article-view/article-viewTemplate.html',
+      controller: 'ArticleViewController'
     }).
     otherwise({
       redirectTo: '/users'
