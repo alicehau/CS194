@@ -14,6 +14,7 @@ cs142App.controller('ArticleViewController', ['$scope', '$routeParams',
                 var obj = response.data;
                 console.log(obj['objects'][0]["html"]);
                 $scope.articleData = obj['objects'][0]["html"];
+                $scope.articleTitle = obj['objects'][0]['title'];
                 console.log("Success response");
         });
 
