@@ -65,7 +65,17 @@ cs142App.controller('MainController', ['$scope', '$location', 'Auth',
     // any time auth status updates, add the user data to scope
     $scope.auth.$onAuth(function(authData) {
       $scope.shared.authData = authData;
+      $scope.shared.uid = authData.uid;
+      // if(authData){
+      //   $scope.shared.loggedIn = true;
+      // } else {
+      //   $scope.shared.loggedIn = false;
+      // }
     });
+
+    $scope.logout = function() {
+      $scope.auth.$unauth();
+    }
     /*
      * FetchModel - Fetch a model from the web server.
      *   url - string - The URL to issue the GET request.

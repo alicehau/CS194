@@ -12,5 +12,6 @@ cs142App.controller('UserListController', ['$scope',
     };
     $scope.FetchModel("/user/list", $scope.main.callBack);
 
+
   }
 ]);

@@ -70,14 +70,15 @@
       <a href="#/addArticle">Add Article</a>
       <a href="#/viewArticle">View Article</a>
       <a href="#/followPeople">Follow</a>
-            <md-button class="md-raised" ng-click="main.login()">Login</md-button>
+            <a ng-show="!shared.authData" href="#/login-register"><md-button class="md-raised" ng-click="main.login()">Login</md-button></a>
+          <a ng-show="shared.authData" href="#/login-register" ng-click="logout()"><md-button class="md-raised">Logout</md-button></a>
 
 
   </md-toolbar>
 
   <div class="container" flex layout="row">
 
-    <md-sidenav md-is-locked-open="true" class="md-whiteframe-z2">
+    <md-sidenav ng-show="shared.authData" md-is-locked-open="true" class="md-whiteframe-z2">
       <!-- <div ng-include="'components/user-list/user-listTemplate.html'" ng-controller="UserListController"></div> -->
       <div ng-include="'components/follower-list/follower-listTemplate.html'" ng-controller="FollowerListController"></div>
 
