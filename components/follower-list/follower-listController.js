@@ -1,25 +1,31 @@
 'use strict';
 
-cs142App.controller('FollowerListController', ['$scope',
-function($scope) {
-
-  var currentUser = $scope.shared.currentUser;
+cs142App.controller('FollowerListController', ['$scope', '$firebaseArray',
+function($scope, $firebaseArray) {
   $scope.main = {};
-  $scope.main.followingIndex = 0;
+  
+  $scope.auth.$onAuth(function(authData) {
 
-  //list of users george follows
-  $scope.main.following = $scope.shared.currentUser.following;
-  // var followingRef = new Firebase("https://nooz.firebaseio.com/users/" + $scope.shared.uid + "/following/");
-  // $scope.main.following = $firebaseArray(followingRef);
+    $scope.main.followingIndex = 0;
+
+    var usersRef = new Firebase("https://nooz.firebaseio.com/users/");
+    $scope.main.users = $firebaseArray(usersRef);
+    var curatorRef = new Firebase("https://nooz.firebaseio.com/users/" + $scope.shared.authData.uid + "/following/");
+    $scope.main.curators = $firebaseArray(curatorRef);
+    console.log("loaded curators");
+  });
+
 
 
   /**
   * List of all articles reposted by the following person the user has selected
   */
-  function updateVisibleArticle(){
-    $scope.main.followeeArticles = currentUser.following[$scope.main.followingIndex].reposted_articles;
-    // var articlesRef = new Firebase("https://nooz.firebaseio.com/users/" + + "/articles/");
-    // $scope.main.articles = $firebaseArray(articlesRef);
+  function updateVisibleArticle(id){
+    // $scope.main.followeeArticles = currentUser.following[$scope.main.followingIndex].reposted_articles;
+    var articlesRef = new Firebase("https://nooz.firebaseio.com/users/" + id +"/articles/");
+    $scope.main.followeeArticles = $firebaseArray(articlesRef);
+    console.log("gotArticles");
+    console.log(id);
   }
 
 
@@ -33,9 +39,9 @@ function($scope) {
   /**
   * Click handler for each following entry. Update the articles listed
   */
-  $scope.main.followingClickHandler = function(value){
-    $scope.main.followingIndex = value;
-    updateVisibleArticle();
+  $scope.main.followingClickHandler = function(id, index){
+    $scope.main.followingIndex = index;
+    updateVisibleArticle(id);
   };
 
   updateVisibleArticle();
