@@ -3,11 +3,11 @@
 <!-- Create the horizontal list of following users -->
 <div id="list-container">
   <md-list layout="row">
-    <md-list-item ng-repeat="followee in main.following">
-      <span class="md-list-item-text follower" ng-click="main.followingClickHandler($index)" ng-class="main.highlight($index)">
+    <md-list-item ng-repeat="curator in main.curators">
+      <span class="md-list-item-text follower" ng-click="main.followingClickHandler(curator.$value, $index)" ng-class="main.highlight($index)">
         <img ng-src="images/Calum.png" class="headshot"/>
-        <div class="name-text">{{followee.first_name}}</div>
-        <div class="name-text">{{followee.last_name}}</div>
+        <div class="name-text">{{main.users.$getRecord(curator.$value).profile.first_name}}{{$index}}</div>
+        <div class="name-text">{{main.users.$getRecord(curator.$value).profile.last_name}}</div>
       </span>
     </md-list-item>
   </md-list>
@@ -15,7 +15,7 @@
 
 <!-- Create the individual article cards -->
 <md-card ng-repeat="article in main.followeeArticles">
-  <img ng-src="images/Stanford.jpg" class="md-card-image article-image" alt="Washed Out">
+  <img ng-src="{{article.images[0].url}}" class="md-card-image article-image" alt="Washed Out">
   <md-card-title>
     <md-card-title-text>
       <span class="md-headline">{{article.title}}</span>
