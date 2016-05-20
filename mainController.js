@@ -36,6 +36,10 @@ cs142App.config(['$routeProvider',
       templateUrl: 'components/article-view/article-viewTemplate.html',
       controller: 'ArticleViewController'
     }).
+    when('/followPeople', {
+      templateUrl: 'components/follow-people/follow-peopleTemplate.html',
+      controller: 'FollowPeopleController'
+    }).
     otherwise({
       redirectTo: '/users'
     });

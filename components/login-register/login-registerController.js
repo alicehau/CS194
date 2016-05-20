@@ -57,7 +57,7 @@ cs142App.controller('LoginRegisterController', ['$scope', '$rootScope',
       }).then(function(userData) {
         $scope.main.message = "User created with uid: " + userData.uid;
               console.log("just registered a user id " + userData.uid);
-        var usersRef = new Firebase("https://nooz.firebaseio.com/users/" + userData.uid + '/');
+        var usersRef = new Firebase("https://nooz.firebaseio.com/users/" + userData.uid + '/profile/');
         $scope.main.users = $firebaseArray(usersRef);
         $scope.main.users.$add({
           first_name: $scope.main.newUser.first_name,
