@@ -2,13 +2,15 @@
 
 cs142App.controller('FollowerListController', ['$scope',
 function($scope) {
+
   var currentUser = $scope.shared.currentUser;
   $scope.main = {};
   $scope.main.followingIndex = 0;
 
   //list of users george follows
   $scope.main.following = $scope.shared.currentUser.following;
-
+  // var followingRef = new Firebase("https://nooz.firebaseio.com/users/" + $scope.shared.uid + "/following/");
+  // $scope.main.following = $firebaseArray(followingRef);
 
 
   /**
@@ -16,6 +18,8 @@ function($scope) {
   */
   function updateVisibleArticle(){
     $scope.main.followeeArticles = currentUser.following[$scope.main.followingIndex].reposted_articles;
+    // var articlesRef = new Firebase("https://nooz.firebaseio.com/users/" + + "/articles/");
+    // $scope.main.articles = $firebaseArray(articlesRef);
   }
 
 
@@ -38,3 +42,5 @@ function($scope) {
 
 }
 ]);
+
+//follower-list

@@ -1,8 +1,8 @@
 'use strict';
 
 cs142App.controller('LoginRegisterController', ['$scope', '$rootScope', 
-  '$location', '$http', 'Auth', '$firebaseArray',
-  function($scope, $rootScope, $location, $http, Auth, $firebaseArray) {
+  '$location', '$http', 'Auth', '$firebaseArray', '$firebaseObject',
+  function($scope, $rootScope, $location, $http, Auth, $firebaseArray, $firebaseObject) {
     /*
      * Since the route is specified as '/users/:userId' in $routeProvider config the
      * $routeParams  should have the userId property set with the path from the URL.
@@ -57,13 +57,17 @@ cs142App.controller('LoginRegisterController', ['$scope', '$rootScope',
       }).then(function(userData) {
         $scope.main.message = "User created with uid: " + userData.uid;
               console.log("just registered a user id " + userData.uid);
-        var usersRef = new Firebase("https://nooz.firebaseio.com/users/" + userData.uid + '/');
-        $scope.main.users = $firebaseArray(usersRef);
-        $scope.main.users.$add({
-          first_name: $scope.main.newUser.first_name,
-          last_name: $scope.main.newUser.last_name
+        var usersRef = new Firebase("https://nooz.firebaseio.com/users/" + userData.uid + '/profile');
+        var obj = $firebaseObject(usersRef);
+        obj.first_name = $scope.main.newUser.first_name;
+        obj.last_name = $scope.main.newUser.last_name;
+        obj.$save().then(function() {
+          console.log('Profile saved! for ' + $scope.main.newUser.first_name);
+        }).catch(function(error) {
+          console.log('Error!');
         });
       }).catch(function(error) {
+        console.log("ERROR IN MAKING PROFILE")
         $scope.error = error;
       });
     };
