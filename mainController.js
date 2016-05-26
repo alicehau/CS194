@@ -32,7 +32,7 @@ cs142App.config(['$routeProvider',
       templateUrl: 'components/login-register/login-registerTemplate.html',
       controller: 'LoginRegisterController'
     }).
-    when('/viewArticle', {
+    when('/viewArticle/:userId/:articleId', {
       templateUrl: 'components/article-view/article-viewTemplate.html',
       controller: 'ArticleViewController'
     }).

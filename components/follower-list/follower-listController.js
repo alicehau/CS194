@@ -1,7 +1,7 @@
 'use strict';
 
-cs142App.controller('FollowerListController', ['$scope', '$firebaseArray',
-function($scope, $firebaseArray) {
+cs142App.controller('FollowerListController', ['$scope', '$firebaseArray','$routeParams',
+function($scope, $firebaseArray, $routeParams) {
   $scope.main = {};
   
   $scope.auth.$onAuth(function(authData) {
@@ -14,7 +14,7 @@ function($scope, $firebaseArray) {
     $scope.main.curators = $firebaseArray(curatorRef);
     console.log("loaded curators");
   });
-
+  
 
 
   /**
@@ -40,9 +40,14 @@ function($scope, $firebaseArray) {
   * Click handler for each following entry. Update the articles listed
   */
   $scope.main.followingClickHandler = function(id, index){
+    $scope.curatorId = id;
     $scope.main.followingIndex = index;
     updateVisibleArticle(id);
   };
+
+  // $scope.main.showArticle = function(index) {
+    
+  // }
 
   updateVisibleArticle();
 

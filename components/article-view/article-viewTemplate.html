@@ -11,7 +11,7 @@
           <div class="col-sm-8 col-sm-offset-2 articleContainer" >
            <md-button class="md-raised" ng-click="viewArticle()">Show Article</md-button>
               <div class="articleTitle">
-                {{articleTitle}}
+                {{articleObj.title}}
               </div>
               <div class="article">
                 <ng-bind-html ng-bind-html="articleData"></ng-bind-html>
