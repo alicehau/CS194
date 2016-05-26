@@ -14,9 +14,8 @@
 </div>
 
 <!-- Create the individual article cards -->
- <md-card ng-repeat="article in main.followeeArticles">
+ <md-card ng-repeat="article in main.followeeArticles | orderBy: '-timestamp'">
   <a href="#/viewArticle/{{curatorId}}/{{article.$id}}" style="text-decoration:none">
-
   <img ng-src="{{article.images[0].url}}" class="md-card-image article-image" alt="Washed Out">
   <md-card-title>
     <md-card-title-text>

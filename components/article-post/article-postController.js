@@ -24,6 +24,7 @@ cs142App.controller('ArticlePostController', ['$scope', '$routeParams',
               console.log("Success response");
               
               obj['objects'][0].comment = $scope.articleComment;
+              obj['objects'][0].timestamp = Firebase.ServerValue.TIMESTAMP;
               $scope.main.articles.$add(obj['objects'][0]);
 
               $scope.articleTitle = '';

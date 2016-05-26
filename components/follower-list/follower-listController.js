@@ -23,7 +23,7 @@ function($scope, $firebaseArray, $routeParams) {
   function updateVisibleArticle(id){
     // $scope.main.followeeArticles = currentUser.following[$scope.main.followingIndex].reposted_articles;
     var articlesRef = new Firebase("https://nooz.firebaseio.com/users/" + id +"/articles/");
-    $scope.main.followeeArticles = $firebaseArray(articlesRef);
+    $scope.main.followeeArticles = $firebaseArray(articlesRef).reverse();
     console.log("gotArticles");
     console.log(id);
   }
