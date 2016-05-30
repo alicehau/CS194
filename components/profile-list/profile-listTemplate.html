@@ -1,0 +1,12 @@
+<h1 class="md-display-1 user-title">Profile</h1>
+
+<!-- Create the horizontal list of following users -->
+<div id="list-container">
+  <md-list layout="column">
+    <md-list-item ng-repeat="items in main.items">
+      <span class="md-list-item-text" ng-click="main.itemClicked($index)">
+        {{items}}
+      </span>
+    </md-list-item>
+  </md-list>
+</div>
