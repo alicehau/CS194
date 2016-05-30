@@ -8,11 +8,12 @@ cs142App.controller('ProfileListController', ['$scope', '$firebaseArray','$route
 
 		$scope.main.itemClicked = function(index){
 			console.log("clicked on " + index);
-
-
 			switch (index) {
 				case 0: $location.path("/followPeople");
-				break;
+					break;
+				case 1: $location.path("/userPosts");
+					break;
+
 			}
 		};
 	}
