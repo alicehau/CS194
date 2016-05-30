@@ -32,6 +32,10 @@ cs142App.config(['$routeProvider',
       templateUrl: 'components/follow-people/follow-peopleTemplate.html',
       controller: 'FollowPeopleController'
     }).
+    when('/userPosts', {
+      templateUrl: 'components/user-posts/user-postsTemplate.html',
+      controller: 'UserPostsController'
+    }).
     otherwise({
       redirectTo: '/login-register'
     });
