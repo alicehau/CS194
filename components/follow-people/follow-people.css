@@ -1,0 +1,35 @@
+#list-container{
+  width: 100%;
+  overflow-x:scroll;
+  overflow-y:hidden;
+}
+.headshot{
+  width: 60px;
+  height: 60px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 50%;
+}
+.name-text{
+  text-align: center;
+}
+*:focus {
+    outline:none;
+}
+.follower:hover{
+  background-color: grey;
+}
+.follower {
+  background-color: none;
+}
+.highlight{
+  background-color: yellow;
+}
+i {
+  color: #656565;
+}
+
+/*Relative to the article cards*/
+md-list-item.md-no-proxy{
+  padding: 8px;
+}
