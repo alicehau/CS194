@@ -1,7 +1,7 @@
-<h1 class="md-display-1 user-title">Following</h1>
 
 <!-- Create the horizontal list of following users -->
-<div id="list-container">
+<div class="list-container">
+  <h1 class="md-display-1 user-title">Following</h1>
   <md-list layout="row">
     <md-list-item ng-repeat="curator in main.curators">
       <span class="md-list-item-text follower" ng-click="main.followingClickHandler(curator.$value, $index)" ng-class="main.highlight($index)">
@@ -12,6 +12,9 @@
     </md-list-item>
   </md-list>
 </div>
+
+<div class="scrollable-content">
+<md-content layout-padding>
 
 <!-- Create the individual article cards -->
  <md-card ng-repeat="article in main.followeeArticles | orderBy: '-timestamp'">
@@ -41,6 +44,8 @@
   </md-card-actions>
   </a>
 </md-card>
+</md-content>
 
+</div>
 <!-- <a ng-click="main.chevronClick(-1)"><i class="material-icons">chevron_left</i></a>
 <a ng-click="main.chevronClick(1)"><i class="material-icons">chevron_right</i></a> -->

@@ -74,9 +74,9 @@
     <a href="#/addArticle">Add Article</a>
     <a href="#/viewArticle/1/1">View Article</a>
     <a href="#/followPeople">Follow</a>
-    <section layout="row" layout-align="center center" ng-show="shared.authData">
-      <md-button class="groupX left" ng-click="main.switchSidePane(true)">Read</md-button>
-      <md-button class="groupX middle" ng-click="main.switchSidePane(false)">Profile</md-button>
+    <section class="toolbar" layout="row" layout-align="center center" ng-show="shared.authData">
+      <md-button class="groupX left" ng-class="shared.sidePaneReadingView ? 'toolbar-button-selected' : ''" ng-click="main.switchSidePane(true)">Read</md-button>
+      <md-button class="groupX middle" ng-class="!shared.sidePaneReadingView ? 'toolbar-button-selected' : ''"ng-click="main.switchSidePane(false)">Profile</md-button>
       <md-button class="groupX right" ng-click="main.logout()">Logout</md-button>
     </section>
   </md-toolbar>

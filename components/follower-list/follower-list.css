@@ -1,7 +1,10 @@
-#list-container{
+.list-container{
   width: 100%;
   overflow-x:scroll;
   overflow-y:hidden;
+}
+.scrollable-content{
+  overflow-x:scroll;
 }
 .headshot{
   width: 60px;

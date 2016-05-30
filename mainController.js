@@ -13,16 +13,12 @@ cs142App.config(['$routeProvider',
   function($routeProvider) {
     $routeProvider.
     when('/users', {
-      templateUrl: 'components/user-list/user-listTemplate.html',
-      controller: 'UserListController'
+      templateUrl: 'components/profile-list/profile-listTemplate.html',
+      controller: 'ProfileListController'
     }).
     when('/users/:userId', {
       templateUrl: 'components/user-detail/user-detailTemplate.html',
       controller: 'UserDetailController'
-    }).
-    when('/photosOfUser/:userId', {
-      templateUrl: 'components/user-photos/user-photosTemplate.html',
-      controller: 'UserPhotosController'
     }).
     when('/addArticle', {
       templateUrl: 'components/article-post/article-postTemplate.html',
@@ -61,7 +57,6 @@ cs142App.controller('MainController', ['$scope', '$location', 'Auth',
     $scope.shared.sidePaneReadingView = true;
     $scope.main.switchSidePane = function(val){
       $scope.shared.sidePaneReadingView  = val;
-      console.log("changed to " + $scope.shared.sidePaneReadingView);
     };
 
    $scope.auth = Auth;

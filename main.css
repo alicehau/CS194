@@ -15,7 +15,14 @@ md-sidenav.md-locked-open {
   min-width: 400px;
   max-width: 400px;
 }
-
+.toolbar {
+  padding-right: 18px;
+}
+.md-button.toolbar-button-selected{
+  /*background-color: yellow;*/
+   text-decoration: underline;
+   font-weight: bold;
+}
 .groupX {
     font-size: 16px;
     margin: 20px 0;
