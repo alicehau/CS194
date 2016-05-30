@@ -8,18 +8,21 @@ cs142App.controller('FollowPeopleController', ['$scope', '$routeParams',
      * $routeParams  should have the userId property set with the path from the URL.
      */
     $scope.main = {};
-    $scope.currUid = $scope.shared.authData.uid;
-    var usersRef = new Firebase("https://nooz.firebaseio.com/users/");
-    $scope.main.users = $firebaseArray(usersRef);
-    var curatorsRef = new Firebase("https://nooz.firebaseio.com/users/" + $scope.currUid + "/following")
-    $scope.main.curators = $firebaseArray(curatorsRef);
-    $scope.main.leftToFollow = [];
-    $scope.main.curators.$loaded()
-    .then(function(){
-      $scope.main.users.$loaded().then(function(){
-        getUsersLeftToFollow();
-      });
-    });
+    if ($scope.shared.authData) {
+      $scope.currUid = $scope.shared.authData.uid;
+          var usersRef = new Firebase("https://nooz.firebaseio.com/users/");
+          $scope.main.users = $firebaseArray(usersRef);
+          var curatorsRef = new Firebase("https://nooz.firebaseio.com/users/" + $scope.currUid + "/following")
+          $scope.main.curators = $firebaseArray(curatorsRef);
+          $scope.main.leftToFollow = [];
+          $scope.main.curators.$loaded()
+          .then(function(){
+            $scope.main.users.$loaded().then(function(){
+              getUsersLeftToFollow();
+            });
+          });
+    }
+    
 
     $scope.main.followUser = function(followId) {
       var followingRef = new Firebase("https://nooz.firebaseio.com/users/" + $scope.currUid + '/following');
