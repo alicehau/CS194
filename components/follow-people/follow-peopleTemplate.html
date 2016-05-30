@@ -4,22 +4,32 @@
     <!-- <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet"> -->
   </head>
   <body>
-   <h1> Registered Users </h1>
-    <md-list>
-      <md-list-item ng-repeat="user in main.users">
-        <div class="md-list-item-text user-list" layout="column" ng-click="main.followUser(user.$id)">
-            {{user.profile.first_name}} {{user.profile.last_name}}
-         </div>
-      </md-list-item>
-    </md-list>
+   <h1> Click to Follow </h1>
 
-    <h2> Currently Following </h1>
-    <md-list>
-      <md-list-item ng-repeat="curator in main.curators">
-        <div class="md-list-item-text user-list" layout="column">
-            {{main.users.$getRecord(curator.$value).profile.first_name}} {{main.users.$getRecord(curator.$value).profile.last_name}}
-         </div>
-      </md-list-item>
-    </md-list>
+    <div id="list-container">
+      <md-grid-list md-cols="4" md-row-height="200px">
+        <md-grid-tile ng-repeat="user in main.leftToFollow">
+          <span class="md-list-item-text follower" ng-click="main.followUser(user.$id)" ng-class="main.highlight($index)">
+            <img ng-src="images/Calum.png" class="headshot"/>
+            <div class="name-text">{{user.profile.first_name}}</div>
+            <div class="name-text">{{user.profile.last_name}}</div>
+          </span>
+        </md-grid-tile>
+      </md-list>
+    </div>
+
+    <h1> Currently Following </h1>
+    <div id="list-container">
+      <md-grid-list md-cols="4" md-row-height="200px">
+        <md-grid-tile ng-repeat="curator in main.curators">
+          <span class="md-list-item-text follower">
+            <img ng-src="images/Calum.png" class="headshot"/>
+            <div class="name-text">{{main.users.$getRecord(curator.$value).profile.first_name}}</div>
+            <div class="name-text">{{main.users.$getRecord(curator.$value).profile.last_name}}</div>
+          </span>
+        </md-grid-tile>
+      </md-list>
+    </div>
+
   </body>
 </html>

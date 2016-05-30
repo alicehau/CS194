@@ -1,0 +1,89 @@
+.myarticle-title{
+  font-size: 20px;
+  font-weight: bold;
+}
+
+md-card md-card-title {
+  padding: 24px 16px 0px;
+}
+
+.myarticle-image {
+  width: 20%;
+  height:20%;
+  float: right;
+  margin: 10px;
+}
+
+#list-container{
+  width: 100%;
+  overflow-x:scroll;
+  overflow-y:hidden;
+}
+.headshot{
+  width: 60px;
+  height: 60px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 50%;
+}
+.name-text{
+  text-align: center;
+}
+*:focus {
+    outline:none;
+}
+.follower:hover{
+  background-color: grey;
+}
+.follower {
+  background-color: none;
+}
+.highlight{
+  background-color: yellow;
+}
+i {
+  color: #656565;
+}
+
+/*Relative to the article cards*/
+md-list-item.md-no-proxy{
+  padding: 8px;
+}
+.article-title-container:hover{
+  background-color: green
+}
+.flexbox-container {
+	display: -ms-flex;
+	display: -webkit-flex;
+	display: flex;
+}
+.flexbox-container > div {
+	padding: 5px;
+}
+.article-thumbnail-container{
+  float: left;
+
+}
+.article-thumbnail{
+  width: 80px;
+  height: 80px;
+  position: relative;
+  overflow: hidden;
+}
+.article-title-container{
+  width: 100%;
+  font-weight: bold;
+}
+.article-comment-container{
+  font-weight: normal;
+}
+.article-information-container{
+  padding: 5px;
+}
+.underline{
+  width: 100%
+  height: 2px;
+  border-bottom: 1px solid #aaa;
+}
+
+

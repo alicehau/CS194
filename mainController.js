@@ -32,8 +32,12 @@ cs142App.config(['$routeProvider',
       templateUrl: 'components/follow-people/follow-peopleTemplate.html',
       controller: 'FollowPeopleController'
     }).
+    when('/userPosts', {
+      templateUrl: 'components/user-posts/user-postsTemplate.html',
+      controller: 'UserPostsController'
+    }).
     otherwise({
-      redirectTo: '/users'
+      redirectTo: '/login-register'
     });
   }
 ]);
@@ -49,7 +53,7 @@ cs142App.controller('MainController', ['$scope', '$location', 'Auth',
     $scope.shared = {};
     //store the logged in user
     $scope.shared.currentUser = window.noozModels.loggedInUserModel();
-
+    $scope.shared.follow = true;
     $scope.shared.sidePaneReadingView = true;
     $scope.main.switchSidePane = function(val){
       $scope.shared.sidePaneReadingView  = val;
