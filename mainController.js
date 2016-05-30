@@ -59,8 +59,8 @@ cs142App.controller('MainController', ['$scope', '$location', 'Auth',
     $scope.shared.currentUser = window.noozModels.loggedInUserModel();
 
     $scope.shared.sidePaneReadingView = true;
-    $scope.main.switchSidePane = function(){
-      $scope.shared.sidePaneReadingView  = !$scope.shared.sidePaneReadingView;
+    $scope.main.switchSidePane = function(val){
+      $scope.shared.sidePaneReadingView  = val;
       console.log("changed to " + $scope.shared.sidePaneReadingView);
     };
 
@@ -77,8 +77,9 @@ cs142App.controller('MainController', ['$scope', '$location', 'Auth',
       // }
     });
 
-    $scope.logout = function() {
+    $scope.main.logout = function() {
       $scope.auth.$unauth();
+      $location.path('login-register');
     };
     /*
      * FetchModel - Fetch a model from the web server.
