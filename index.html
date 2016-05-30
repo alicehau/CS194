@@ -21,7 +21,7 @@
   <script src="mainController.js"></script>
   <link rel="stylesheet" type="text/css" href="main.css" />
 
-  <script src="components/user-list/user-listController.js"></script>
+  <!-- <script src="components/user-list/user-listController.js"></script>
   <link rel="stylesheet" type="text/css" href="components/user-list/user-list.css" />
 
   <script src="components/user-detail/user-detailController.js"></script>
@@ -29,7 +29,7 @@
 
   <script src="components/user-photos/user-photosController.js"></script>
   <link rel="stylesheet" type="text/css" href="components/user-photos/user-photos.css" />
-
+ -->
 
   <script src="components/follower-list/follower-listController.js"></script>
   <link rel="stylesheet" type="text/css" href="components/follower-list/follower-list.css" />
@@ -74,6 +74,8 @@
     <a href="#/addArticle">Add Article</a>
     <a href="#/viewArticle/1/1">View Article</a>
     <a href="#/followPeople">Follow</a>
+    <span flex></span>
+
     <section class="toolbar" layout="row" layout-align="center center" ng-show="shared.authData">
       <md-button class="groupX left" ng-class="shared.sidePaneReadingView ? 'toolbar-button-selected' : ''" ng-click="main.switchSidePane(true)">Read</md-button>
       <md-button class="groupX middle" ng-class="!shared.sidePaneReadingView ? 'toolbar-button-selected' : ''"ng-click="main.switchSidePane(false)">Profile</md-button>
@@ -91,7 +93,7 @@
     <md-content flex id="content">
       <div ng-view>
         <div>
-          <div ng-include="'components/user-detail/user-detailTemplate.html'" ng-controller="UserDetailController"></div>
+          <!-- <div ng-include="'components/user-detail/user-detailTemplate.html'" ng-controller="UserDetailController"></div> -->
         </div>
       </div>
     </md-content>

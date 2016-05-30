@@ -16,10 +16,6 @@ cs142App.config(['$routeProvider',
       templateUrl: 'components/profile-list/profile-listTemplate.html',
       controller: 'ProfileListController'
     }).
-    when('/users/:userId', {
-      templateUrl: 'components/user-detail/user-detailTemplate.html',
-      controller: 'UserDetailController'
-    }).
     when('/addArticle', {
       templateUrl: 'components/article-post/article-postTemplate.html',
       controller: 'ArticlePostController'
