@@ -5,9 +5,14 @@
 }
 
 .articleContainer{
+	 margin-left: 20px;
     background-color:white;
     padding-left: 80px;
     padding-right: 80px;
+    border-left: solid;
+    border-left-color: #D8D8D8;
+    border-left-width: 2px;
+
 
 }
 

@@ -70,17 +70,15 @@
 
 <body layout="column">
 
-  <md-toolbar layout="row">
-    <h2>
-      <span>Nooz</span>
-    </h2>
+  <md-toolbar layout="row" style = "background-color: white; border-bottom: 2px solid #696969; padding-bottom: 30px; margin-left: 3%;
+  margin-right: 3%">
+    <h3>
+      <span class = "noozTitle" >NOOZ</span>
+    </h3>
     <a href="#/addArticle">Add Article</a>
-    <a href="#/viewArticle/1/1">View Article</a>
-    <a href="#/followPeople">Follow</a>
-    <a href="#/userPosts">User Posts</a>
     <span flex></span>
 
-    <section class="toolbar" layout="row" layout-align="center center" ng-show="shared.authData">
+    <section class="toolbar" layout="row"  ng-show="shared.authData">
       <md-button class="groupX left" ng-class="shared.sidePaneReadingView ? 'toolbar-button-selected' : ''" ng-click="main.switchSidePane(true)">Read</md-button>
       <md-button class="groupX middle" ng-class="!shared.sidePaneReadingView ? 'toolbar-button-selected' : ''"ng-click="main.switchSidePane(false)">Profile</md-button>
       <md-button class="groupX right" ng-click="main.logout()">Logout</md-button>

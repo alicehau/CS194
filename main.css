@@ -12,20 +12,30 @@ md-sidenav.md-locked-open {
   min-width: 400px;
   max-width: 400px;
 }
+
+.noozTitle {
+  text-align: center;
+  font-size: 80px;
+  /*padding-left: 18px;*/
+  color: black;
+  font-family: "Courier New", Courier, monospace;
+  position: absolute;
+  left: 46%;
+
+}
+
 .toolbar {
-  padding-right: 18px;
+  float: right;
+  padding-top: 25px;
 }
 .md-button.toolbar-button-selected{
-  /*background-color: yellow;*/
-   text-decoration: underline;
    font-weight: bold;
 }
 .groupX {
-    font-size: 16px;
+    font-size: 20px;
     margin: 20px 0;
     padding: 3px 15px 3px 15px;
     color: rgb(49, 46, 46);
-    background-color: rgba(224, 224, 224, 0.96);
     text-transform: none;
     font-weight: 400;
     min-width:100px;
