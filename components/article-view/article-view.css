@@ -1,18 +1,19 @@
 .article {
-    color:white;
     margin: 40px;
-    font-family: Lato;
+    font-family: Georgia, Times, 'Times New Roman', serif;
+    font-size: 25px;
 }
 
 .articleContainer{
-    background-color:#39373a;
+    background-color:white;
+    padding-left: 80px;
+    padding-right: 80px;
 
 }
 
 .articleTitle {
-    color: white;
     font-size: 45px;
     margin: 40px;
     text-align: center;
-    font-family: Lato;
+    font-family: Georgia, Times, 'Times New Roman', serif;
 }

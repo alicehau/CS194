@@ -1,12 +1,12 @@
 
 <!-- Create the horizontal list of following users -->
+<h1 class="md-display-1 user-title" style="text-align: center">Following</h1>
 <div class="list-container">
-  <h1 class="md-display-1 user-title">Following</h1>
   <md-list layout="row">
     <md-list-item ng-repeat="curator in main.curators">
       <span class="md-list-item-text follower" ng-click="main.followingClickHandler(curator.$value, $index)" ng-class="main.highlight($index)">
         <img ng-src="images/Calum.png" class="headshot"/>
-        <div class="name-text">{{main.users.$getRecord(curator.$value).profile.first_name}}{{$index}}</div>
+        <div class="name-text">{{main.users.$getRecord(curator.$value).profile.first_name}}</div>
         <div class="name-text">{{main.users.$getRecord(curator.$value).profile.last_name}}</div>
       </span>
     </md-list-item>
@@ -19,26 +19,27 @@
 <!-- Create the individual article cards -->
  <md-card ng-repeat="article in main.followeeArticles | orderBy: '-timestamp'">
   <a href="#/viewArticle/{{curatorId}}/{{article.$id}}" style="text-decoration:none">
-  <img ng-src="{{article.images[0].url}}" class="md-card-image article-image" alt="Washed Out">
-  <md-card-title>
-    <md-card-title-text>
-      <span class="md-headline">{{article.title}}</span>
-    </md-card-title-text>
+
+  <img ng-src="{{article.images[0].url}}" class="article-image" alt="Washed Out">
+
+
+  </md-card-title>
+      <md-card-header-text>
+        <span class="md-headline" style="display:block">{{article.title}}</span>
+        By <span class="md-subhead" style ="text-transform: uppercase">{{article.author}}</span>
+        <span class="md-title">
+          <p>
+            <i class = "material-icons" ng-if="article.comment" md-18>format_quote</i>
+            {{article.comment}}
+            <i class = "material-icons" ng-if="article.comment" md-18>format_quote</i>
+          </p>
+        </span>
+      </md-card-header-text>
   </md-card-title>
 
-  <md-card-content>
-    <i class="material-icons" md-18>format_quote</i>
-    <span>
-      {{article.comment}}
-    </span>
-    <i class="material-icons" md-18>format_quote</i>
-  </md-card-content>
-
   <md-card-actions layout="row" layout-align="end center">
-      <md-button class="md-icon-button" aria-label="Favorite">
-        <md-icon><i class="material-icons">clear</i></md-icon>
-      </md-button>
-      <md-button class="md-icon-button" aria-label="Share">
+   <span flex style ="text-transform: uppercase">{{article.siteName}}
+      <md-button class="md-icon-button" aria-label="Share"></span>
         <md-icon><i class="material-icons">favorite</i></md-icon>
       </md-button>
   </md-card-actions>
