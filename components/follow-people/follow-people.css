@@ -20,15 +20,15 @@ h2{
 *:focus {
     outline:none;
 }
-.follower:hover{
+/*.follower:hover{
   background-color: grey;
-}
+}*/
 .follower {
   background-color: none;
 }
-.highlight{
+/*.highlight{
   background-color: yellow;
-}
+}*/
 i {
   color: #656565;
 }

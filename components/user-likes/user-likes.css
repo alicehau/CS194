@@ -32,15 +32,15 @@ md-card md-card-title {
 *:focus {
     outline:none;
 }
-.follower:hover{
+/*.follower:hover{
   background-color: grey;
-}
+}*/
 .follower {
   background-color: none;
 }
-.highlight{
+/*.highlight{
   background-color: rgba(240, 104, 49, 0.64);
-}
+}*/
 i {
   color: #656565;
 }
