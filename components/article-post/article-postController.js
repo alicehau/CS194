@@ -16,7 +16,7 @@ cs142App.controller('ArticlePostController', ['$scope', '$routeParams',
 
       var encodedURI = encodeURIComponent($scope.articleLink);
 
-      $http.get("http://api.diffbot.com/v3/article?token=3f53f3925380eaac09a03a8c5ea11634&url=" + encodedURI)
+      $http.get("http://api.diffbot.com/v3/article?token=90d8a5387254ad57971dc32a4a59e9b2&url=" + encodedURI)
           .then(function(response) {
               var obj = response.data;
               $scope.articleData = obj['objects'][0]["html"];
