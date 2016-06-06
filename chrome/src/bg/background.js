@@ -6,11 +6,15 @@ var callback = function(response, url, comment){
   var responseJSON = JSON.parse(response).objects[0];
   responseJSON.comment = comment;
   //user who is posting this article
-  var userId = "af45e2ab-3b4f-460e-82d6-d3c6034808df";//Kirby Gee
+  var userId = "191e913d-baf5-49c8-847a-f31f81f0f4b7";//Kirby Gee
   var firebaseConnection = new Firebase("https://nooz.firebaseio.com/users/" + userId + "/articles/");
   var newArticleRef = firebaseConnection.push();
+  responseJSON.timestamp = Firebase.ServerValue.TIMESTAMP;
+  console.log(responseJSON.timestamp);
   newArticleRef.set(responseJSON, function(error){
     console.log("success");
+    chrome.tabs.create({url:chrome.extension.getURL("browser_action.html")});
+
   });
 
 };
@@ -18,10 +22,11 @@ var comment = "";
   //recieve message handler from browser_action, then calls diffbot api
   chrome.extension.onMessage.addListener(
     function(message, sender, sendResponse) {
+      console.log(message);
       var url = message.url;
       var comment = message.comment;
       console.log(url + " -> " + comment);
-      var theUrl = "http://api.diffbot.com/v3/article?token=3f53f3925380eaac09a03a8c5ea11634&url=" + encodeURIComponent(url);
+      var theUrl = "http://api.diffbot.com/v3/article?token=90d8a5387254ad57971dc32a4a59e9b2&url=" + encodeURIComponent(url);
       var xmlHttp = new XMLHttpRequest();
       xmlHttp.onreadystatechange = function() {
         if (xmlHttp.readyState == 4 && xmlHttp.status == 200){
