@@ -4,7 +4,7 @@
       <img ng-src="images/Calum.png" class="headshot-large"/>
       <md-card-content>
         <h2 class="name-text">{{user.profile.first_name}} {{user.profile.last_name}}</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+        <p>{{user.profile.user_description}} </p>
       </md-card-content>
       <div class="md-actions" layout="row" layout-align="end center">
          <md-button ng-click="main.followUser(user.$id)" ng-class="main.highlight($index)">Follow</md-button>
@@ -18,7 +18,7 @@
       <img ng-src="images/Calum.png" class="headshot-large"/>
       <md-card-content>
          <h2 class="name-text">{{main.users.$getRecord(curator.$value).profile.first_name}} {{main.users.$getRecord(curator.$value).profile.last_name}}</h2>
-         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+         <p>{{main.users.$getRecord(curator.$value).profile.user_description}} </p>
       </md-card-content>
    </md-card>
 </div>
