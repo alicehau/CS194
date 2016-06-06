@@ -1,6 +1,6 @@
 'use strict';
 
-cs142App.controller('LoginRegisterController', ['$scope', '$rootScope', 
+cs142App.controller('LoginRegisterController', ['$scope', '$rootScope',
   '$location', '$http', 'Auth', '$firebaseArray', '$firebaseObject',
   function($scope, $rootScope, $location, $http, Auth, $firebaseArray, $firebaseObject) {
     /*
@@ -20,7 +20,6 @@ cs142App.controller('LoginRegisterController', ['$scope', '$rootScope',
       password: "",
       passwordReentry: ""
     };
-
     $scope.main.login = function() {
       var ref = new Firebase("https://nooz.firebaseio.com");
       ref.authWithPassword({

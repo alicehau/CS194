@@ -69,16 +69,15 @@
             <div ng-show="shared.sidePaneReadingView" ng-include="'components/follower-list/follower-listTemplate.html'" ng-controller="FollowerListController"></div>
             <div ng-show="!shared.sidePaneReadingView" ng-include="'components/profile-list/profile-listTemplate.html'" ng-controller="ProfileListController"></div>
           </div>
-
          </md-sidenav>
        </div>
 
        <md-content flex id="content">
           <div ng-view>
-            <div class="test">
+            <!-- <div class="test"> -->
               <div ng-include="'components/follow-people/follow-peopleTemplate.html'" ng-controller="FollowPeopleController"></div>
               <div ng-include="'components/user-posts/user-postsTemplate.html'" ng-controller="UserPostsController"></div>
-            </div>
+            <!-- </div> -->
           </div>
         </md-content>
       </div>

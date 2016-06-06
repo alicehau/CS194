@@ -17,7 +17,11 @@ md-sidenav.md-locked-open {
   overflow: scroll;
 }
 #mainBody{
-  overflow: hidden;
+  /*overflow: hidden;*/
+}
+#content{
+  height: 700px;
+  overflow: scroll;
 }
 .noozTitle {
   text-align: center;
