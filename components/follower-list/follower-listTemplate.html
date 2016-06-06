@@ -1,7 +1,6 @@
 <!-- Create the horizontal list of following users -->
 <h1 class="md-display-1 user-title" style="text-align: center">Following</h1>
 <div class="list-container">
-<<<<<<< HEAD
    <md-list layout="row">
       <md-list-item ng-repeat="curator in main.curators">
          <span class="md-list-item-text follower" ng-click="main.followingClickHandler(curator.$value, $index)" ng-class="main.highlight($index)">
@@ -11,90 +10,34 @@
          </span>
       </md-list-item>
    </md-list>
-=======
-  <md-list layout="row">
-    <md-list-item ng-repeat="curator in main.curators">
-      <span class="md-list-item-text follower" ng-click="main.followingClickHandler(curator.$value, $index)" ng-class="main.highlight($index)">
-        <img ng-src="images/Calum.png" class="headshot"/>
-        <div class="name-text">{{main.users.$getRecord(curator.$value).profile.first_name}}</div>
-        <div class="name-text">{{main.users.$getRecord(curator.$value).profile.last_name}}</div>
-      </span>
-    </md-list-item>
-  </md-list>
 </div>
 
-<div class="scrollable-content">
-<md-content layout-padding>
-
-<!-- Create the individual article cards -->
- <md-card ng-repeat="article in main.followeeArticles | orderBy: '-timestamp'">
-  <a href="#/viewArticle/{{curatorId}}/{{article.$id}}" style="text-decoration:none">
-
-  <img ng-src="{{article.images[0].url}}" class="article-image" alt="Washed Out">
-
-
-  </md-card-title>
-      <md-card-header-text>
-        <span class="md-headline" style="display:block">{{article.title}}</span>
-        By <span class="md-subhead" style ="text-transform: uppercase">{{article.author}}</span>
-        <span class="md-title">
-          <p>
-            <i class = "material-icons" ng-if="article.comment" md-18>format_quote</i>
-            {{article.comment}}
-            <i class = "material-icons" ng-if="article.comment" md-18>format_quote</i>
-          </p>
-        </span>
-      </md-card-header-text>
-  </md-card-title>
-  </a>
-  <md-card-actions layout="row" layout-align="end center">
-   <span flex style ="text-transform: uppercase">{{article.siteName}}</span>
-      <md-button class="md-icon-button" ng-click="main.addLikes(article, article.$id, curatorId)" aria-label="Share">
-        <md-icon><i  ng-class="main.toggleHeart(article.$id)" class="material-icons">favorite</i></md-icon>
-      </md-button>
-  </md-card-actions>
-</md-card>
-</md-content>
-
->>>>>>> 89ceb587dde70ad14deeb6403cd610eeae45d0d2
-</div>
-<!-- <md-list>
-   <md-list-item ng-repeat="li in list">
-      <div class="md-list-item-text">
-         <div layout="row">
-            <span>{{li.name}}</span>
-            <span flex></span>
-            <span>{{li.idx || 0}}</span>
-         </div>
-      </div>
-   </md-list-item>
-</md-list> -->
-   <md-content layout-padding>
-      <md-card ng-repeat="article in main.followeeArticles | orderBy: '-timestamp'">
-         <a href="#/viewArticle/{{curatorId}}/{{article.$id}}" style="text-decoration:none">
-         <img ng-src="{{article.images[0].url}}" class="article-image" alt="Washed Out">
-         </md-card-title>
-         <md-card-header-text>
-            <span class="md-headline" style="display:block">{{article.title}}</span>
-            By <span class="md-subhead" style ="text-transform: uppercase">{{article.author}}</span>
-            <span class="md-title">
-               <p>
-                  <i class = "material-icons" ng-if="article.comment" md-18>format_quote</i>
-                  {{article.comment}}
-                  <i class = "material-icons" ng-if="article.comment" md-18>format_quote</i>
-               </p>
-            </span>
-         </md-card-header-text>
-         </md-card-title>
-         <md-card-actions layout="row" layout-align="end center">
-            <span flex style ="text-transform: uppercase">
-               {{article.siteName}}
-               <md-button class="md-icon-button" ng-click="main.addLikes(article, article.$id, curatorId)" aria-label="Share">
-            </span>
-            <md-icon><i ng-class="main.toggleHeart(article.$id)" class="material-icons">favorite</i></md-icon>
-            </md-button>
-         </md-card-actions>
-      </md-card>
-   </md-content>
+ <md-content layout-padding>
+    <md-card ng-repeat="article in main.followeeArticles | orderBy: '-timestamp'">
+       <a href="#/viewArticle/{{curatorId}}/{{article.$id}}" style="text-decoration:none">
+       <img ng-src="{{article.images[0].url}}" class="article-image" alt="Washed Out">
+       </md-card-title>
+       <md-card-header-text>
+          <span class="md-headline" style="display:block">{{article.title}}</span>
+          By <span class="md-subhead" style ="text-transform: uppercase">{{article.author}}</span>
+          <span class="md-title">
+             <p>
+                <i class = "material-icons" ng-if="article.comment" md-18>format_quote</i>
+                {{article.comment}}
+                <i class = "material-icons" ng-if="article.comment" md-18>format_quote</i>
+             </p>
+          </span>
+       </md-card-header-text>
+       </md-card-title>
+       <md-card-actions layout="row" layout-align="end center">
+          <span flex style ="text-transform: uppercase">
+             {{article.siteName}}
+             <md-button class="md-icon-button" ng-click="main.addLikes(article, article.$id, curatorId)" aria-label="Share">
+          </span>
+          <md-icon><i ng-class="main.toggleHeart(article.$id)" class="material-icons">favorite</i></md-icon>
+          </md-button>
+       </md-card-actions>
+    </md-card>
+ </md-content>
 <!-- <a ng-click="main.chevronClick(-1)"><i class="material-icons">chevron_left</i></a>
    <a ng-click="main.chevronClick(1)"><i class="material-icons">chevron_right</i></a> -->
