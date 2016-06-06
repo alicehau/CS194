@@ -22,7 +22,11 @@ cs142App.controller('ArticleViewController', ['$scope', '$routeParams',
     });
 
     $scope.main.backToLikes = function() {
+      if($scope.shared.viewMode === "likesViewer"){
         $location.path("/userLikes");
+      } else {
+        $location.path("/userPosts");
+      }
         $scope.shared.viewMode = "";
     };
 

@@ -10,10 +10,15 @@ function($scope, $firebaseArray, $routeParams, $firebaseObject) {
     console.log("got Articles for " + authData.uid);
     console.log($scope.main.myArticles);
     $scope.userID = authData.uid;
+    $scope.main.myID = authData.uid;
   });
 
   $scope.main.mode = "static";
   $scope.main.editIndex = -1;
+
+  $scope.main.toggleViewMode = function() {
+    $scope.shared.viewMode = "myPostsViewer";
+  }
 
 
   $scope.editComment = function(articleID, index){
