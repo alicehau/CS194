@@ -26,7 +26,7 @@ md-sidenav.md-locked-open {
   overflow: scroll;
 }
 #mainBody{
-  /*overflow: hidden;*/
+  ovßerflow: hidden;
 }
 #content{
   height: 700px;
@@ -36,19 +36,16 @@ md-sidenav.md-locked-open {
   padding-left: 10px;
 }
 .noozTitle {
-  text-align: center;
-  font-size: 80px;
-  /*padding-left: 8px;*/
-  color: black;
-  font-family: "Courier New", Courier, monospace;
+  margin: 0 auto
   position: absolute;
-  left: 42%;
-
 }
-
+.toolbar-buttons{
+  width: 300px;
+}
 .toolbar {
   float: right;
   padding-top: 68px;
+  min-height: 123px;
 }
 .md-button.toolbar-button-selected{
    font-weight: bold;
@@ -60,7 +57,7 @@ md-sidenav.md-locked-open {
     color: rgb(49, 46, 46);
     text-transform: none;
     font-weight: 400;
-    min-width:100px;
+    min-width:80px;
 }
 .md-button.left {
     border-radius: 10px 0 0 10px;
