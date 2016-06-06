@@ -5,8 +5,8 @@
         <!-- Create the horizontal list of following users -->
         <div id="list-container">
           <md-list layout="column">
-            <md-list-item ng-repeat="items in main.items">
-            <div class="option-title" ng-click="main.itemClicked($index)">
+            <md-list-item ng-repeat="items in main.items" >
+            <div class="option-title" ng-class="main.highlight($index)" ng-click="main.itemClicked($index)">
               <span class="md-list-item-text option" >
                 {{items}}
               </span>

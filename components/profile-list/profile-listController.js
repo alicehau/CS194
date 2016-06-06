@@ -3,11 +3,11 @@
 cs142App.controller('ProfileListController', ['$scope', '$firebaseArray','$routeParams', '$location',
 	function($scope, $firebaseArray, $routeParams, $location) {
 		$scope.main = {};
-		$scope.main.items = ["Follow", "Your Posts", "Favorites"];
-
+		$scope.main.items = ["Follow Curators", "My Posts", "Favorites"];
 
 		$scope.main.itemClicked = function(index){
 			console.log("clicked on " + index);
+			$scope.main.followingIndex = index;
 			switch (index) {
 				case 0: $location.path("/followPeople");
 					break;
@@ -18,6 +18,13 @@ cs142App.controller('ProfileListController', ['$scope', '$firebaseArray','$route
 
 			}
 		};
+
+		$scope.main.highlight = function(index){
+		    if (index === $scope.main.followingIndex){
+		      return "chosen";
+		    }
+		    return "";
+		 };
 	}
 ]);
 
