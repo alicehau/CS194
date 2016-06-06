@@ -68,6 +68,11 @@ cs142App.controller('MainController', ['$scope', '$location', 'Auth',
     $scope.shared.sidePaneReadingView = true;
     $scope.main.switchSidePane = function(val){
       $scope.shared.sidePaneReadingView  = val;
+      if(val){ //reading mode
+        $scope.shared.testFunction();
+      } else {
+        $location.path("/followPeople");
+      }
     };
 
    $scope.shared.auth = Auth;

@@ -1,7 +1,7 @@
 'use strict';
 
-cs142App.controller('FollowerListController', ['$scope', '$firebaseArray','$routeParams', '$firebaseObject',
-function($scope, $firebaseArray, $routeParams, $firebaseObject) {
+cs142App.controller('FollowerListController', ['$scope', '$firebaseArray','$routeParams', '$firebaseObject', '$location',
+function($scope, $firebaseArray, $routeParams, $firebaseObject, $location) {
   $scope.main = {};
 
   $scope.shared.auth.$onAuth(function(authData) {
@@ -15,12 +15,11 @@ function($scope, $firebaseArray, $routeParams, $firebaseObject) {
     $scope.main.curators = $firebaseArray(curatorRef);
 
     $scope.main.curators.$loaded().then(function () {
-      console.log("line 19 : " +$scope.main.curators.$keyAt(0));
       var key = $scope.main.curators.$keyAt(0);
-      console.log(key);
       var userID = $scope.main.curators.$getRecord(key);
-      console.log(userID.$value);
       $scope.main.followingClickHandler(userID.$value, 0);
+      $scope.main.currentCuratorID = userID.$value;
+      //store a default article to show
     });
 
     var likesListRef = new Firebase("https://nooz.firebaseio.com/users/" + $scope.main.userID + "/likesIDArray/");
@@ -50,6 +49,18 @@ function($scope, $firebaseArray, $routeParams, $firebaseObject) {
     }
     $scope.list = list;
 
+
+  $scope.shared.testFunction = function() {
+    console.log("called test function");
+    var articleRef = new Firebase("https://nooz.firebaseio.com/users/" + $scope.main.currentCuratorID + "/articles");
+    var articleArray = $firebaseArray(articleRef);
+    articleArray.$loaded().then(function () {
+      console.log("you called me!" + articleArray.length);
+      $location.path("/viewArticle/" + $scope.main.currentCuratorID + "/" + articleArray.$keyAt(articleArray.length -1));
+      // "#/viewArticle/{{curatorId}}/{{article.$id}}"
+    });
+
+  };
 
 
   $scope.main.addLikes = function(articleObj, firebaseID, curatorID) {

@@ -59,9 +59,11 @@
          </h3>
          <span flex></span>
          <section class="toolbar" layout="row" flex>
+            <div class="toolbar-buttons" ng-hide="!shared.authData">
                <md-button class="groupX left tbbutton" ng-class="shared.sidePaneReadingView ? 'toolbar-button-selected' : ''" ng-click="main.switchSidePane(true)">Read</md-button>
                <md-button class="groupX middle tbbutton" ng-class="!shared.sidePaneReadingView ? 'toolbar-button-selected' : ''"ng-click="main.switchSidePane(false)">Profile</md-button>
                <md-button class="groupX right tbbutton" ng-click="main.logout()">Logout</md-button>
+            </div>
          </section>
       </md-toolbar>
       <div class="container" flex layout="row">
