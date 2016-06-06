@@ -1,82 +1,154 @@
-<h1>{{main.errorMessage}}</h1>
-
-<div class="login_page">
-<md-card>
-  <md-card-title>
-     <md-card-title-text>
-       <span class="md-headline">Login</span>
-     </md-card-title-text>
-   </md-card-title>
-  <div layout-gt-sm="row">
-    <div flex="30">
-      <md-input-container class="md-block" flex-gt-sm>
-        <label>Email</label>
-        <input ng-model="main.userEmail">
-      </md-input-container>
-    </div>
-    <div flex="30">
-      <md-input-container class="md-block" flex-gt-sm>
-        <label>Password</label>
-        <input ng-model="main.userPassword" type="password">
-      </md-input-container>
-    </div>
-    <div flex="10">
-      <a href="#/articleView"><md-button class="md-raised" ng-click="main.login()">Login</md-button></a>
-    </div>
-  </div>
-</md-card>
-
-
-<md-card>
-  <md-card-title>
-     <md-card-title-text>
-     {{main.message}}
-       <span class="md-headline">Register</span>
-     </md-card-title-text>
-   </md-card-title>
-
-  <div layout-gt-sm="column">
-    <div flex="30">
-      <md-input-container class="md-block" flex-gt-sm>
-        <label>First Name</label>
-        <input ng-model="main.newUser.first_name">
-      </md-input-container>
-    </div>
-    <div flex="30">
-      <md-input-container class="md-block" flex-gt-sm>
-        <label>Last Name</label>
-        <input ng-model="main.newUser.last_name">
-      </md-input-container>
-    </div>
-    <div flex="30">
-      <md-input-container class="md-block" flex-gt-sm>
-        <label>Email</label>
-        <input ng-model="main.newUser.email"></input>
-      </md-input-container>
-    </div>
-    <div flex="30">
-      <md-input-container class="md-block" flex-gt-sm>
-        <label>User Profile Description</label>
-        <textarea ng-model="main.newUser.user_description"></textarea>
-      </md-input-container>
-    </div>
-    <div flex="30">
-      <md-input-container class="md-block" flex-gt-sm>
-        <label>Password</label>
-        <input ng-model="main.newUser.password">
-      </md-input-container>
-    </div>
-
-    <div flex="30">
-      <md-input-container class="md-block" flex-gt-sm>
-        <label>Re-enter password</label>
-        <input type="password" ng-model="main.newUser.passwordReentry">
-      </md-input-container>
-    </div>
-
-    <div flex="10">
-      <md-button class="md-raised md-primary" ng-click="main.register()">Register Me</md-button>
-    </div>
-  </div>
-</md-card>
+<div class="login-area" layout="row">
+   <h3>Email</h3>
+   <div class="form-group">
+      <input type="text" class="form-control" placeholder="email" ng-model="main.userEmail"></input>
+   </div>
+   <h3>Password</h3>
+   <div class="form-group">
+      <input class="form-control" placeholder="password" ng-model="main.userPassword" type="password"></input>
+   </div>
+   <md-button class="md-raised  md-primary" ng-click="main.login()">Login</md-button>
 </div>
+
+<div class="register-area" layout="column">
+   <div class="entry" layout="row">
+      <h3 class="reg">First name</h3>
+      <div flex="20"></div>
+      <div class="form-group">
+         <input type="text" class="form-control" placeholder="name" ng-model="main.newUser.first_name"></input>
+      </div>
+   </div>
+
+   <div class="entry" layout="row">
+      <h3 class="reg">Last name</h3>
+      <div flex="20"></div>
+
+      <div class="form-group">
+         <input type="text" class="form-control" placeholder="last" ng-model="main.newUser.last_name"></input>
+      </div>
+   </div>
+
+   <div class="entry" layout="row">
+      <h3 class="reg">Email</h3>
+      <div flex="20"></div>
+      <div class="form-group">
+         <input type="text" class="form-control" placeholder="email" ng-model="main.newUser.email"></input>
+      </div>
+   </div>
+
+
+   <div class="entry" layout="row">
+      <h3 class="reg">Profile description</h3>
+      <div flex="20"></div>
+      <div class="form-group">
+          <textarea ng-model="main.newUser.user_description" placeholder="..." ng-model="main.newUser.user_description"></textarea>
+      </div>
+   </div>
+
+   <div class="entry" layout="row">
+      <h3 class="reg">Password</h3>
+      <div flex="20"></div>
+
+      <div class="form-group">
+         <input class="form-control" placeholder="password" type="password" ng-model="main.newUser.password"></input>
+      </div>
+   </div>
+
+   <div class="entry" layout="row">
+      <h3 class="reg">Re-enter password</h3>
+      <div flex="20"></div>
+
+      <div class="form-group">
+         <input class="form-control" placeholder="password" type="password" ng-model="main.newUser.passwordReentry"></input>
+      </div>
+   </div>
+
+   <div class="entry" layout="row">
+      <h3 class="reg"></h3>
+      <div flex="20"></div>
+
+      <md-button class="md-raised  md-primary" id="reg-button" ng-click="main.register()">Register Me</md-button>
+
+   </div>
+</div>
+<!-- <h1>{{main.errorMessage}}</h1>
+   <div class="login_page">
+   <md-card>
+     <md-card-title>
+        <md-card-title-text>
+          <span class="md-headline">Login</span>
+        </md-card-title-text>
+      </md-card-title>
+     <div layout-gt-sm="row">
+       <div flex="30">
+         <md-input-container class="md-block" flex-gt-sm>
+           <label>Email</label>
+           <input ng-model="main.userEmail">
+         </md-input-container>
+       </div>
+       <div flex="30">
+         <md-input-container class="md-block" flex-gt-sm>
+           <label>Password</label>
+           <input ng-model="main.userPassword" type="password">
+         </md-input-container>
+       </div>
+       <div flex="10">
+         <a href="#/articleView"><md-button class="md-raised" ng-click="main.login()">Login</md-button></a>
+       </div>
+     </div>
+   </md-card>
+
+
+   <md-card>
+     <md-card-title>
+        <md-card-title-text>
+        {{main.message}}
+          <span class="md-headline">Register</span>
+        </md-card-title-text>
+      </md-card-title>
+
+     <div layout-gt-sm="column">
+       <div flex="30">
+         <md-input-container class="md-block" flex-gt-sm>
+           <label>First Name</label>
+           <input ng-model="main.newUser.first_name">
+         </md-input-container>
+       </div>
+       <div flex="30">
+         <md-input-container class="md-block" flex-gt-sm>
+           <label>Last Name</label>
+           <input ng-model="main.newUser.last_name">
+         </md-input-container>
+       </div>
+       <div flex="30">
+         <md-input-container class="md-block" flex-gt-sm>
+           <label>Email</label>
+           <input ng-model="main.newUser.email"></input>
+         </md-input-container>
+       </div>
+       <div flex="30">
+         <md-input-container class="md-block" flex-gt-sm>
+           <label>User Profile Description</label>
+           <textarea ng-model="main.newUser.user_description"></textarea>
+         </md-input-container>
+       </div>
+       <div flex="30">
+         <md-input-container class="md-block" flex-gt-sm>
+           <label>Password</label>
+           <input ng-model="main.newUser.password">
+         </md-input-container>
+       </div>
+
+       <div flex="30">
+         <md-input-container class="md-block" flex-gt-sm>
+           <label>Re-enter password</label>
+           <input type="password" ng-model="main.newUser.passwordReentry">
+         </md-input-container>
+       </div>
+
+       <div flex="10">
+         <md-button class="md-raised md-primary" ng-click="main.register()">Register Me</md-button>
+       </div>
+     </div>
+   </md-card>
+   </div> -->

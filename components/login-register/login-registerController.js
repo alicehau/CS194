@@ -21,6 +21,7 @@ cs142App.controller('LoginRegisterController', ['$scope', '$rootScope',
       passwordReentry: ""
     };
     $scope.main.login = function() {
+      console.log("clicked");
       var ref = new Firebase("https://nooz.firebaseio.com");
       ref.authWithPassword({
         email    : $scope.main.userEmail,

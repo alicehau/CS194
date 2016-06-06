@@ -3,5 +3,54 @@
 }
 
 .login_page{
-    margin:0px;
+  margin:0px;
+}
+.login-area{
+  padding-top: 30px;
+  padding-bottom: 30px;
+  margin-left: 40px;
+  margin-right: 40px;
+  border-bottom: 1px solid;
+
+}
+.reg{
+  width: 200px;
+}
+.register-area{
+  padding-top: 30px;
+  padding-bottom: 30px;
+  margin-left: 40px;
+  margin-right: 40px;
+}
+#reg-button{
+  margin: 0px;
+  margin-top: 20px;
+
+}
+input{
+  width: 40px;
+}
+textarea {
+  resize: none;
+}
+input[type=text], select{
+  width: 200px;
+}
+input[type=password], select{
+  width: 200px;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+h3{
+  margin-left: 40px;
+  margin-right: 10px;
+}
+a.md-button.md-default-theme.md-raised, a.md-button.md-raised, .md-button.md-default-theme.md-raised, .md-button.md-raised{
+  margin: 10px;
+
+  height: 40px;
 }
