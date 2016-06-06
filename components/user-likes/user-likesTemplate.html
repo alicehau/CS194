@@ -3,7 +3,9 @@
 
 <!-- Create the individual article cards -->
  <md-card layout="row" ng-repeat="article in main.myLikes | orderBy: '-likeTime'">
-  <img ng-src="{{article.images[0].url}}" class="md-card-image myarticle-image" alt="Washed Out">
+  <a href="#/viewArticle/{{article.curatorID}}/{{article.firebaseID}}" style="text-decoration:none" ng-click="main.toggleViewMode()">
+
+  <img ng-src="{{article.images[0].url}}" class="md-card-image myarticle-image" style="float:left" alt="Washed Out">
 
   <div layout="column">
     <md-card-title>
@@ -11,7 +13,6 @@
         <span >{{article.title}}</span>
       </md-card-title-text>
     </md-card-title>
-    <a href="#/viewArticle/{{article.curatorID}}/{{article.firebaseID}}" style="text-decoration:none" ng-click="main.toggleViewMode()">
       <md-card-content ng-show="main.mode == 'static' || main.editIndex != $index">
       <i class="material-icons" md-18>format_quote</i>
       <span class="article-comment">
@@ -19,12 +20,8 @@
       </span>
       <i class="material-icons" md-18>format_quote</i>
       </md-card-content>
-    </a>
-
-
-
   </div>
-
+    </a>
   <md-card-actions layout="row" layout-align="end center">
       <md-button class="md-icon-button" ng-click="deleteArticle(article.$id)" aria-label="Favorite">
         <md-icon><i class="material-icons">clear</i></md-icon>

@@ -33,3 +33,9 @@ i {
 md-list-item.md-no-proxy{
   padding: 8px;
 }
+
+.form-group {
+  border-radius: 2px;
+  width: 200px;
+  box-shadow: none;
+}

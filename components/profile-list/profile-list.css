@@ -1,0 +1,18 @@
+.profile-content {
+    margin-left:40px;
+}
+
+.option:hover {
+    width: 100%;
+}
+
+.option-title {
+    padding:10px;
+}
+
+.option-title:hover {
+    width: 90%;
+    background: #F06831;
+    padding:10px;
+    border-radius: 2px;
+}
