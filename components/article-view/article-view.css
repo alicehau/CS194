@@ -3,7 +3,20 @@
     font-family: Georgia, Times, 'Times New Roman', serif;
     font-size: 25px;
 }
+.container {
+    background-color: white;
+}
+.back-button {
+    color: #FFFFFF; 
+    background-color:#F06831;
+}
 
+.button-container{
+    margin-top: 10px;
+    margin-bottom: -30px;
+    margin-left:30px;
+    background-color:white;
+}
 .articleContainer{
 	 margin-left: 20px;
     background-color:white;

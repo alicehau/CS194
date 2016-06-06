@@ -13,6 +13,8 @@ cs142App.controller('ProfileListController', ['$scope', '$firebaseArray','$route
 					break;
 				case 1: $location.path("/userPosts");
 					break;
+				case 2: $location.path("/userLikes");
+					break;
 
 			}
 		};

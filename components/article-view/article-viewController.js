@@ -21,6 +21,10 @@ cs142App.controller('ArticleViewController', ['$scope', '$routeParams',
       $scope.articleTitle = $scope.articleObj.title;
     });
 
+    $scope.main.backToLikes = function() {
+        $location.path("/userLikes");
+        $scope.shared.viewMode = "";
+    };
 
 
     console.log("ArticleObj:");
@@ -47,7 +51,9 @@ cs142App.controller('ArticleViewController', ['$scope', '$routeParams',
                 console.log("Success response");
         });
 
-     }
+     };
+
+
 
     
       
