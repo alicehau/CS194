@@ -4,7 +4,7 @@ cs142App.controller('FollowerListController', ['$scope', '$firebaseArray','$rout
 function($scope, $firebaseArray, $routeParams, $firebaseObject) {
   $scope.main = {};
 
-  $scope.auth.$onAuth(function(authData) {
+  $scope.shared.auth.$onAuth(function(authData) {
 
     $scope.main.followingIndex = 0;
     $scope.main.userID = authData.uid;
@@ -106,6 +106,17 @@ function($scope, $firebaseArray, $routeParams, $firebaseObject) {
     return "";
   };
 
+
+  $scope.main.articleHighlight = function(index) {
+    if (index === $scope.main.articleIndex) {
+      return "article-highlight";
+    }
+    return "";
+  }
+
+  $scope.main.articleClickHandler = function(index) {
+    $scope.main.articleIndex = index;
+  }
   // $scope.main.
   $scope.main.toggleHeart = function(firebaseID) {
     if($scope.main.likesObj.likeIDs) {

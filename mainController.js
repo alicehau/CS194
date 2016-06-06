@@ -73,10 +73,10 @@ cs142App.controller('MainController', ['$scope', '$location', 'Auth',
       $scope.shared.sidePaneReadingView  = val;
     };
 
-   $scope.auth = Auth;
+   $scope.shared.auth = Auth;
 
     // any time auth status updates, add the user data to scope
-    $scope.auth.$onAuth(function(authData) {
+    $scope.shared.auth.$onAuth(function(authData) {
       $scope.shared.authData = authData;
       // $scope.shared.uid = authData.uid;
       // if(authData){

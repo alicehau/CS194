@@ -13,8 +13,8 @@
 </div>
 
  <md-content layout-padding>
-    <md-card ng-repeat="article in main.followeeArticles | orderBy: '-timestamp'">
-       <a href="#/viewArticle/{{curatorId}}/{{article.$id}}" style="text-decoration:none">
+    <md-card ng-class="main.articleHighlight($index)" ng-repeat="article in main.followeeArticles | orderBy: '-timestamp'">
+       <a href="#/viewArticle/{{curatorId}}/{{article.$id}}" style="text-decoration:none" ng-click="main.articleClickHandler($index)">
        <img ng-src="{{article.images[0].url}}" class="article-image" alt="Washed Out">
        </md-card-title>
        <md-card-header-text>
