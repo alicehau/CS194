@@ -87,7 +87,7 @@ cs142App.controller('MainController', ['$scope', '$location', 'Auth',
     });
 
     $scope.main.logout = function() {
-      $scope.auth.$unauth();
+      $scope.shared.auth.$unauth();
       $location.path('login-register');
     };
     /*

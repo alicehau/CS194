@@ -7,6 +7,7 @@ function($scope, $firebaseArray, $routeParams, $firebaseObject) {
   $scope.shared.auth.$onAuth(function(authData) {
 
     $scope.main.followingIndex = 0;
+    console.log("auth data: " + authData);
     $scope.main.userID = authData.uid;
 
     var usersRef = new Firebase("https://nooz.firebaseio.com/users/");
