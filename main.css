@@ -21,9 +21,11 @@ md-sidenav.md-locked-open {
   min-width: 400px;
   max-width: 400px;
 }
-.test{
+#test{
   height: 700px;
   overflow: scroll;
+  border-right: 1px solid;
+
 }
 #mainBody{
   ovßerflow: hidden;
