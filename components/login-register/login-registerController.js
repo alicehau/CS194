@@ -61,6 +61,7 @@ cs142App.controller('LoginRegisterController', ['$scope', '$rootScope',
         var obj = $firebaseObject(usersRef);
         obj.first_name = $scope.main.newUser.first_name;
         obj.last_name = $scope.main.newUser.last_name;
+        obj.user_description = $scope.main.newUser.user_description;
         obj.$save().then(function() {
           console.log('Profile saved! for ' + $scope.main.newUser.first_name);
         }).catch(function(error) {
