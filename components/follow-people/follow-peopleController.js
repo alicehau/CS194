@@ -1,6 +1,6 @@
 'use strict';
 
-cs142App.controller('FollowPeopleController', ['$scope', '$routeParams', 
+cs142App.controller('FollowPeopleController', ['$scope', '$routeParams',
   '$location', '$firebaseArray', '$http',
   function($scope, $routeParams, $location, $firebaseArray, $http) {
     /*
@@ -19,10 +19,10 @@ cs142App.controller('FollowPeopleController', ['$scope', '$routeParams',
           .then(function(){
             $scope.main.users.$loaded().then(function(){
               getUsersLeftToFollow();
+              console.log("loading " + $scope.main.users);
             });
           });
     }
-    
 
     $scope.main.followUser = function(followId) {
       var followingRef = new Firebase("https://nooz.firebaseio.com/users/" + $scope.currUid + '/following');
@@ -38,7 +38,6 @@ cs142App.controller('FollowPeopleController', ['$scope', '$routeParams',
 
     function getUsersLeftToFollow() {
       $scope.main.leftToFollow = [];
-      console.log("IN HERE!");
       angular.forEach($scope.main.users, function(user) {
           var isCurator = false;
           angular.forEach($scope.main.curators, function(curator) {
@@ -69,7 +68,7 @@ cs142App.controller('FollowPeopleController', ['$scope', '$routeParams',
               $scope.articleData = obj['objects'][0]["html"];
               $scope.articleTitle = obj['objects'][0]['title'];
               console.log("Success response");
-              
+
               obj['objects'][0].comment = $scope.articleComment;
               obj['objects'][0].timestamp = Firebase.ServerValue.TIMESTAMP;
               $scope.main.articles.$add(obj['objects'][0]);

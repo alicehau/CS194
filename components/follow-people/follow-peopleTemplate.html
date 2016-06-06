@@ -1,50 +1,24 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <!-- <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet"> -->
-  </head>
-  <body>
-    <h1>Add an Article</h1>
-    <div class="article-post-form">
-
-    <form ng-submit="addArticle()" style="margin-top:30px;" >
-      <h3>Add a new article</h3>
-        <md-grid-list md-cols="4" md-row-height="200px">
-      <div class="form-group">
-        <input type="text" class="form-control" placeholder="Link" ng-model="articleLink"></input>
+<h2>Other Currators</h2>
+<div class='md-padding' layout="row" layout-wrap>
+   <md-card style="width: 300px;" ng-repeat="user in main.leftToFollow">
+      <img ng-src="images/Calum.png" class="headshot-large"/>
+      <md-card-content>
+        <h2 class="name-text">{{user.profile.first_name}} {{user.profile.last_name}}</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+      </md-card-content>
+      <div class="md-actions" layout="row" layout-align="end center">
+         <md-button ng-click="main.followUser(user.$id)" ng-class="main.highlight($index)">Follow</md-button>
       </div>
-      <div class="form-group">
-        <input type="textarea" class="form-control" placeholder="Comment" ng-model="articleComment"></input>
-      </div>
-      <md-button id="add-article-button" ng-click="addArticle()">Post</md-button>
-    </form>
+   </md-card>
+</div>
 
-    
-
-    </div>
-    <h1> Click to Follow </h1>
-    <div id="list-container">
-      <md-grid-list md-cols="4" md-row-height="200px">
-      <md-grid-tile ng-repeat="user in main.leftToFollow">
-        <span class="md-list-item-text follower" ng-click="main.followUser(user.$id)" ng-class="main.highlight($index)">
-          <img ng-src="images/Calum.png" class="headshot"/>
-          <div class="name-text">{{user.profile.first_name}}</div>
-          <div class="name-text">{{user.profile.last_name}}</div>
-        </span>
-      </md-grid-tile>
-      </md-list>
-    </div>
-    <h1> Currently Following </h1>
-    <div id="list-container currently-following">
-      <md-grid-list md-cols="4" md-row-height="200px">
-      <md-grid-tile ng-repeat="curator in main.curators">
-        <span class="md-list-item-text follower">
-          <img ng-src="images/Calum.png" class="headshot"/>
-          <div class="name-text">{{main.users.$getRecord(curator.$value).profile.first_name}}</div>
-          <div class="name-text">{{main.users.$getRecord(curator.$value).profile.last_name}}</div>
-        </span>
-      </md-grid-tile>
-      </md-list>
-    </div>
-  </body>
-</html>
+<h2> Currently Following </h2>
+<div class='md-padding' layout="row" layout-wrap>
+   <md-card style="width: 300px;" ng-repeat="curator in main.curators">
+      <img ng-src="images/Calum.png" class="headshot-large"/>
+      <md-card-content>
+         <h2 class="name-text">{{main.users.$getRecord(curator.$value).profile.first_name}} {{main.users.$getRecord(curator.$value).profile.last_name}}</h2>
+         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+      </md-card-content>
+   </md-card>
+</div>
