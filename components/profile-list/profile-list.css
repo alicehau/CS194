@@ -8,6 +8,8 @@
 
 .option-title {
     padding:10px;
+    font-size: 24px;
+      font-family: Georgia, Times, 'Times New Roman', serif;
 }
 
 .option-title:hover {
@@ -15,4 +17,9 @@
     background: #F06831;
     padding:10px;
     border-radius: 2px;
+}
+
+.chosen{
+   background: #F06831;
+   width: 90%;
 }

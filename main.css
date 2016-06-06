@@ -7,6 +7,15 @@
        local('MaterialIcons-Regular')
 }
 
+h2 {
+  font-family: Georgia, Times, 'Times New Roman', serif;
+}
+
+h1 {
+  font-family: Georgia, Times, 'Times New Roman', serif;
+
+}
+
 md-sidenav.md-locked-open {
   width: 400px;
   min-width: 400px;

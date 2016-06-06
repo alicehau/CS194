@@ -1,4 +1,6 @@
-<h1 class="md-display-1 user-title">My Posts</h1>
+<div ng-include="'components/article-post/article-postTemplate.html'" ng-controller="ArticlePostController"></div>
+
+<h1 style = "padding-left: 16px">My Posts</h1>
 
 <!-- Create the individual article cards -->
  <md-card layout="row" ng-repeat="article in main.myArticles | orderBy: '-timestamp'">
