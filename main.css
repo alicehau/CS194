@@ -15,7 +15,12 @@ h1 {
   font-family: Georgia, Times, 'Times New Roman', serif;
 
 }
+#center-logo{
+  display: block;
+  margin: 0px;
+  margin-top: 20px;
 
+}
 md-sidenav.md-locked-open {
   width: 400px;
   min-width: 400px;

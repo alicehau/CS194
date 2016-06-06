@@ -51,14 +51,11 @@
    <body layout="column" id="mainBody">
       <md-toolbar layout="row" style = "background-color: white; border-bottom: 2px solid #696969; padding-bottom: 20px; margin-left: 3%;
          margin-right: 3%">
-         <span flex></span>
-         <span flex></span>
-
-         <h3>
+         <h3 id="center-logo">
             <span class = "noozTitle" ><img ng-src="images/logo.png"></span>
          </h3>
          <span flex></span>
-         <section class="toolbar" layout="row" flex>
+         <section class="toolbar" layout="row">
             <div class="toolbar-buttons" ng-hide="!shared.authData">
                <md-button class="groupX left tbbutton" ng-class="shared.sidePaneReadingView ? 'toolbar-button-selected' : ''" ng-click="main.switchSidePane(true)">Read</md-button>
                <md-button class="groupX middle tbbutton" ng-class="!shared.sidePaneReadingView ? 'toolbar-button-selected' : ''"ng-click="main.switchSidePane(false)">Profile</md-button>
