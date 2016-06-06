@@ -31,7 +31,7 @@ cs142App.controller('LoginRegisterController', ['$scope', '$rootScope',
         console.log("Login Failed!", error);
       } else {
         console.log("Authenticated successfully with payload:", authData);
-        
+        $location.path("/followPeople");
       }
       });
     };
