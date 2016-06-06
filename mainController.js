@@ -1,7 +1,6 @@
 'use strict';
 
 var cs142App = angular.module('cs142App', ['ngRoute', 'ngMaterial', 'firebase', 'ngSanitize']);
-console.log("asdf1");
 
 cs142App.factory("Auth", ["$firebaseAuth",
   function($firebaseAuth) {
@@ -51,8 +50,6 @@ cs142App.config(['$routeProvider',
 cs142App.controller('MainController', ['$scope', '$location', 'Auth',
   function($scope, $location, Auth) {
     $scope.main = {};
-    console.log("asdf");
-
 
       var list = [];
         for (var i = 0; i < 100; i++) {
@@ -98,7 +95,6 @@ cs142App.controller('MainController', ['$scope', '$location', 'Auth',
      *                  containing the model. model is undefined in the error case.
      */
     $scope.FetchModel = function(url, doneCallback) {
-      console.log("Fetch model: " + url);
       var xhr = new XMLHttpRequest();
       xhr.onreadystatechange = function(){
         if (this.readyState === 4){

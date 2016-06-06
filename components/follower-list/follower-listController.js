@@ -7,7 +7,6 @@ function($scope, $firebaseArray, $routeParams, $firebaseObject) {
   $scope.shared.auth.$onAuth(function(authData) {
 
     $scope.main.followingIndex = 0;
-    console.log("auth data: " + authData);
     $scope.main.userID = authData.uid;
 
     var usersRef = new Firebase("https://nooz.firebaseio.com/users/");
@@ -30,10 +29,8 @@ function($scope, $firebaseArray, $routeParams, $firebaseObject) {
               console.log("empty object saved");
             }
       });
-
     }
   });
-
 
   var list = [];
     for (var i = 0; i < 100; i++) {
@@ -86,13 +83,13 @@ function($scope, $firebaseArray, $routeParams, $firebaseObject) {
         });
         // part 2
       }
-
   }
 
 
   /**
   * List of all articles reposted by the following person the user has selected
   */
+
   function updateVisibleArticle(id){
     // $scope.main.followeeArticles = currentUser.following[$scope.main.followingIndex].reposted_articles;
     var articlesRef = new Firebase("https://nooz.firebaseio.com/users/" + id +"/articles/");
@@ -133,14 +130,12 @@ function($scope, $firebaseArray, $routeParams, $firebaseObject) {
   * Click handler for each following entry. Update the articles listed
   */
   $scope.main.followingClickHandler = function(id, index){
+    console.log("click " + index);
     $scope.curatorId = id;
     $scope.main.followingIndex = index;
     updateVisibleArticle(id);
   };
 
-  // $scope.main.showArticle = function(index) {
-
-  // }
 
   updateVisibleArticle();
 

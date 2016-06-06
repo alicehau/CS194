@@ -15,11 +15,67 @@
 	 font-size: 20pt;
    font-family: Arial;
 	}
+	.loader {
+    text-align: center;
+}
+.loader span {
+    display: inline-block;
+    vertical-align: middle;
+    width: 10px;
+    height: 10px;
+    margin: 50px auto;
+    background: black;
+    border-radius: 50px;
+    -webkit-animation: loader 0.9s infinite alternate;
+    -moz-animation: loader 0.9s infinite alternate;
+}
+.loader span:nth-of-type(2) {
+    -webkit-animation-delay: 0.3s;
+    -moz-animation-delay: 0.3s;
+}
+.loader span:nth-of-type(3) {
+    -webkit-animation-delay: 0.6s;
+    -moz-animation-delay: 0.6s;
+}
+@-webkit-keyframes loader {
+  0% {
+    width: 10px;
+    height: 10px;
+    opacity: 0.9;
+    -webkit-transform: translateY(0);
+  }
+  100% {
+    width: 24px;
+    height: 24px;
+    opacity: 0.1;
+    -webkit-transform: translateY(-21px);
+  }
+}
+@-moz-keyframes loader {
+  0% {
+    width: 10px;
+    height: 10px;
+    opacity: 0.9;
+    -moz-transform: translateY(0);
+  }
+  100% {
+    width: 24px;
+    height: 24px;
+    opacity: 0.1;
+    -moz-transform: translateY(-21px);
+  }
+
 </style>
 
 <div id="mainPopup">
-<h1>Post article to followers:</h1>
-<form>
+<h1 id="header">Post article to followers:</h1>
+<div class="loader" style="display: none">
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
+
+<form id="form">
   <h2>Comment</h2>
 	<textarea class="comment" id="comment-text-area" rows="3"></textarea>
 	<button type="button" id="submit-article" class="btn btn-primary">Repost</button>
