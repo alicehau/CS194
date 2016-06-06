@@ -27,7 +27,7 @@ cs142App.controller('ArticleViewController', ['$scope', '$routeParams',
       } else {
         $location.path("/userPosts");
       }
-        $scope.shared.viewMode = "";
+      $scope.shared.viewMode = "";
     };
 
 
