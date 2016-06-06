@@ -12,7 +12,6 @@ document.getElementById("submit-article").onclick = function () {
       chrome.runtime.sendMessage({url: tab.url, comment: comment}, function(response) {
         });
   });
-
  };
 
  chrome.extension.onMessage.addListener(
@@ -20,5 +19,4 @@ document.getElementById("submit-article").onclick = function () {
      document.getElementById("mainPopup").style.backgroundColor = '#54c859';
      document.getElementsByClassName("loader")[0].style.display = "none";
      document.getElementById('header').innerHTML = "Done!";
-
   });
