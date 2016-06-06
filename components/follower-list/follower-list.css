@@ -97,3 +97,10 @@ a {
 a:visited {
     color: #787878;
 }
+
+.article-highlight{
+  border-left-width: 4px;
+  border-left-color: #FF6533;
+  border-left-style: solid;
+}
+

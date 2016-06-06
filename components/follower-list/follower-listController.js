@@ -106,6 +106,17 @@ function($scope, $firebaseArray, $routeParams, $firebaseObject) {
     return "";
   };
 
+
+  $scope.main.articleHighlight = function(index) {
+    if (index === $scope.main.articleIndex) {
+      return "article-highlight";
+    }
+    return "";
+  }
+
+  $scope.main.articleClickHandler = function(index) {
+    $scope.main.articleIndex = index;
+  }
   // $scope.main.
   $scope.main.toggleHeart = function(firebaseID) {
     if($scope.main.likesObj.likeIDs) {
