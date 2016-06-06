@@ -4,7 +4,7 @@ cs142App.controller('FollowerListController', ['$scope', '$firebaseArray','$rout
 function($scope, $firebaseArray, $routeParams, $firebaseObject) {
   $scope.main = {};
 
-  $scope.auth.$onAuth(function(authData) {
+  $scope.shared.auth.$onAuth(function(authData) {
 
     $scope.main.followingIndex = 0;
     $scope.main.userID = authData.uid;

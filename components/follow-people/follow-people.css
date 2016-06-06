@@ -39,3 +39,7 @@ md-list-item.md-no-proxy{
   width: 200px;
   box-shadow: none;
 }
+
+#add-article-button{
+  background-color: #62C9F5;
+}

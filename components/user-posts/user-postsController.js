@@ -4,7 +4,7 @@ cs142App.controller('UserPostsController', ['$scope', '$firebaseArray','$routePa
 function($scope, $firebaseArray, $routeParams, $firebaseObject) {
   $scope.main = {};
   
-  $scope.auth.$onAuth(function(authData) {
+  $scope.shared.auth.$onAuth(function(authData) {
     var articlesRef = new Firebase("https://nooz.firebaseio.com/users/" + authData.uid +"/articles/");
     $scope.main.myArticles = $firebaseArray(articlesRef).reverse();
     console.log("got Articles for " + authData.uid);

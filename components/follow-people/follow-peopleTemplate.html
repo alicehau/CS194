@@ -5,9 +5,10 @@
   </head>
   <body>
     <h1>Add an Article</h1>
+    <div class="article-post-form">
+
     <form ng-submit="addArticle()" style="margin-top:30px;" >
       <h3>Add a new article</h3>
-      <div id="list-container">
         <md-grid-list md-cols="4" md-row-height="200px">
       <div class="form-group">
         <input type="text" class="form-control" placeholder="Link" ng-model="articleLink"></input>
@@ -15,9 +16,11 @@
       <div class="form-group">
         <input type="textarea" class="form-control" placeholder="Comment" ng-model="articleComment"></input>
       </div>
-      <md-button class="md-raised" ng-click="addArticle()">Post</md-button>
+      <md-button id="add-article-button" ng-click="addArticle()">Post</md-button>
     </form>
-    </md-list>
+
+    
+
     </div>
     <h1> Click to Follow </h1>
     <div id="list-container">
@@ -32,7 +35,7 @@
       </md-list>
     </div>
     <h1> Currently Following </h1>
-    <div id="list-container">
+    <div id="list-container currently-following">
       <md-grid-list md-cols="4" md-row-height="200px">
       <md-grid-tile ng-repeat="curator in main.curators">
         <span class="md-list-item-text follower">
