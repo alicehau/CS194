@@ -46,7 +46,7 @@ function($scope, $firebaseArray, $routeParams, $firebaseObject) {
 
 
   $scope.main.addLikes = function(articleObj, firebaseID, curatorID) {
-
+      console.log("just added likes");
       if ($scope.main.likesObj.likeIDs[firebaseID]) {//already liked
           var articleRef = new Firebase("https://nooz.firebaseio.com/users/" + $scope.main.userID +"/likes/" + $scope.main.likesObj.likeIDs[firebaseID]);
           console.log("https://nooz.firebaseio.com/users/" + $scope.main.userID +"/likes/" + $scope.main.likesObj.likeIDs[firebaseID]);
@@ -64,6 +64,7 @@ function($scope, $firebaseArray, $routeParams, $firebaseObject) {
         var likesRef = new Firebase("https://nooz.firebaseio.com/users/" + $scope.main.userID + "/likes/");
         $scope.main.likesArray = $firebaseArray(likesRef);
         articleObj.firebaseID = firebaseID;
+        articleObj.curatorID = curatorID;
         articleObj.likeTime = Firebase.ServerValue.TIMESTAMP;
         $scope.main.likesArray.$add(articleObj).then(function(ref) {
           $scope.main.articleFirebaseID = ref.key();

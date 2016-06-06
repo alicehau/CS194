@@ -11,26 +11,15 @@
         <span >{{article.title}}</span>
       </md-card-title-text>
     </md-card-title>
-    <md-card-content ng-show="main.mode == 'static' || main.editIndex != $index">
-    <i class="material-icons" md-18>format_quote</i>
-    <span class="article-comment">
-      {{article.comment}}
-    </span>
-    <i class="material-icons" md-18>format_quote</i>
-
-    <button class="md-raised md-button md-ink-ripple" type="button" aria-label="Edit Comment" ng-click="editComment(article.$id, $index)">
-      <span>Edit Comment</span><div class="md-ripple-container"></div>
-    </button>
-    </md-card-content>
-
-    <md-card-content ng-show="main.mode == 'edit' && main.editIndex == $index">
-    <span>
-      <input type="text" name="comment1" ng-model="main.currentText" required>
-    </span>
-    <button class="md-raised md-button md-ink-ripple" type="button" aria-label="Set Comment" ng-click="setComment(article.$id, comment1, $index)">
-      <span>Set Comment</span><div class="md-ripple-container"></div>
-    </button>
-    </md-card-content>
+    <a href="#/viewArticle/{{article.curatorID}}/{{article.firebaseID}}" style="text-decoration:none" ng-click="main.toggleViewMode()">
+      <md-card-content ng-show="main.mode == 'static' || main.editIndex != $index">
+      <i class="material-icons" md-18>format_quote</i>
+      <span class="article-comment">
+        {{article.comment}}
+      </span>
+      <i class="material-icons" md-18>format_quote</i>
+      </md-card-content>
+    </a>
 
 
 

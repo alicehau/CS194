@@ -50,14 +50,11 @@ function($scope, $firebaseArray, $routeParams, $firebaseObject) {
       articleRef.remove();
 
     });
-
-
-
-
-
-
-
     console.log(articleID + " removed");
+  }
+
+  $scope.main.toggleViewMode = function() {
+    $scope.shared.viewMode = "likesViewer";
   }
 
 }
