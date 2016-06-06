@@ -1,20 +1,83 @@
 'use strict';
 
-cs142App.controller('FollowerListController', ['$scope', '$firebaseArray','$routeParams',
-function($scope, $firebaseArray, $routeParams) {
+cs142App.controller('FollowerListController', ['$scope', '$firebaseArray','$routeParams', '$firebaseObject',
+function($scope, $firebaseArray, $routeParams, $firebaseObject) {
   $scope.main = {};
   
   $scope.auth.$onAuth(function(authData) {
 
     $scope.main.followingIndex = 0;
+    $scope.main.userID = authData.uid;
 
     var usersRef = new Firebase("https://nooz.firebaseio.com/users/");
     $scope.main.users = $firebaseArray(usersRef);
     var curatorRef = new Firebase("https://nooz.firebaseio.com/users/" + $scope.shared.authData.uid + "/following/");
     $scope.main.curators = $firebaseArray(curatorRef);
-    console.log("loaded curators");
+
+    var likesListRef = new Firebase("https://nooz.firebaseio.com/users/" + $scope.main.userID + "/likesIDArray/");
+    $scope.main.likesIDArray = $firebaseArray(likesListRef);
+
+    var likeIDsRef = new Firebase("https://nooz.firebaseio.com/users/" + $scope.main.userID);
+    // var obj = $firebaseObject(likeIDsRef);
+    $scope.main.likesObj = $firebaseObject(likeIDsRef);
+    if(!$scope.main.likesObj.likeIDs) { //if it's not initialized yet
+      var obj = $firebaseObject(likeIDsRef);
+          obj.$loaded().then(function() {
+            if(!obj.likeIDs) { // if it doesn't exist, make it.
+              obj.likeIDs = {"ID": "filler"};
+              obj.$save();
+              console.log("empty object saved");
+            }
+      });
+
+    } 
   });
+
+
   
+
+
+  $scope.main.addLikes = function(articleObj, firebaseID, curatorID) {
+
+      if ($scope.main.likesObj.likeIDs[firebaseID]) {//already liked
+          var articleRef = new Firebase("https://nooz.firebaseio.com/users/" + $scope.main.userID +"/likes/" + $scope.main.likesObj.likeIDs[firebaseID]);
+          console.log("https://nooz.firebaseio.com/users/" + $scope.main.userID +"/likes/" + $scope.main.likesObj.likeIDs[firebaseID]);
+          articleRef.remove();
+          var likeIDsRef = new Firebase("https://nooz.firebaseio.com/users/" + $scope.main.userID);
+          var obj = $firebaseObject(likeIDsRef);
+          obj.$loaded().then(function() {
+            delete obj.likeIDs[firebaseID]
+            obj.$save();
+            console.log("AYY: " + firebaseID);
+          });
+      }
+      else {
+        console.log("not liked yet!");
+        var likesRef = new Firebase("https://nooz.firebaseio.com/users/" + $scope.main.userID + "/likes/");
+        $scope.main.likesArray = $firebaseArray(likesRef);
+        articleObj.firebaseID = firebaseID;
+        articleObj.likeTime = Firebase.ServerValue.TIMESTAMP;
+        $scope.main.likesArray.$add(articleObj).then(function(ref) {
+          $scope.main.articleFirebaseID = ref.key();
+          console.log($scope.main.articleFirebaseID);
+          var likeIDsRef = new Firebase("https://nooz.firebaseio.com/users/" + $scope.main.userID);
+          var obj = $firebaseObject(likeIDsRef);
+          obj.$loaded().then(function() {
+            if(!obj.likeIDs) { // if it doesn't exist, make it.
+              obj.likeIDs = {};
+              obj.$save();
+              console.log("empty object saved");
+            }
+            var articleID = String(firebaseID);
+            obj.likeIDs[articleID] = $scope.main.articleFirebaseID;
+            obj.$save();
+            $scope.main.idArray = JSON.parse(JSON.stringify(obj.likeIDs));
+          });
+        });
+        // part 2
+      }
+
+  }
 
 
   /**
@@ -23,9 +86,7 @@ function($scope, $firebaseArray, $routeParams) {
   function updateVisibleArticle(id){
     // $scope.main.followeeArticles = currentUser.following[$scope.main.followingIndex].reposted_articles;
     var articlesRef = new Firebase("https://nooz.firebaseio.com/users/" + id +"/articles/");
-    $scope.main.followeeArticles = $firebaseArray(articlesRef).reverse();
-    console.log("gotArticles");
-    console.log(id);
+    $scope.main.followeeArticles = $firebaseArray(articlesRef);
   }
 
 
@@ -34,6 +95,17 @@ function($scope, $firebaseArray, $routeParams) {
       return "highlight";
     }
     return "";
+  };
+
+  // $scope.main.
+  $scope.main.toggleHeart = function(firebaseID) {
+    if($scope.main.likesObj.likeIDs) {
+      if($scope.main.likesObj.likeIDs[firebaseID]) {
+        return "red-heart";
+      } else {
+        return "";
+      }
+    }
   };
 
   /**

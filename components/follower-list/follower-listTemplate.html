@@ -39,11 +39,10 @@
 
   <md-card-actions layout="row" layout-align="end center">
    <span flex style ="text-transform: uppercase">{{article.siteName}}
-      <md-button class="md-icon-button" aria-label="Share"></span>
-        <md-icon><i class="material-icons">favorite</i></md-icon>
+      <md-button class="md-icon-button" ng-click="main.addLikes(article, article.$id, curatorId)" aria-label="Share"></span>
+        <md-icon><i ng-class="main.toggleHeart(article.$id)" class="material-icons">favorite</i></md-icon>
       </md-button>
   </md-card-actions>
-  </a>
 </md-card>
 </md-content>
 

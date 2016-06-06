@@ -1,15 +1,23 @@
-.red-heart {
-  color: red;
+.myarticle-title{
+  font-size: 20px;
+  font-weight: bold;
 }
 
-.list-container{
+md-card md-card-title {
+  padding: 24px 16px 0px;
+}
+
+.myarticle-image {
+  width: 20%;
+  height:20%;
+  float: right;
+  margin: 10px;
+}
+
+#list-container{
   width: 100%;
   overflow-x:scroll;
   overflow-y:hidden;
-  
-}
-.scrollable-content{
-  overflow-x:scroll;
 }
 .headshot{
   width: 60px;
@@ -20,7 +28,6 @@
 }
 .name-text{
   text-align: center;
-
 }
 *:focus {
     outline:none;
@@ -31,9 +38,8 @@
 .follower {
   background-color: none;
 }
-
 .highlight{
-  background-color: #0080FF;
+  background-color: yellow;
 }
 i {
   color: #656565;
@@ -80,19 +86,4 @@ md-list-item.md-no-proxy{
   border-bottom: 1px solid #aaa;
 }
 
-/*New design with cards*/
-.article-image{
-  height: 100px;
-  width: 100px;
-  float: right;
-  border-radius: 50%;
-  overflow: hidden;
-}
 
-a {
-  color:black;
-}
-
-a:visited {
-    color: #787878;
-}

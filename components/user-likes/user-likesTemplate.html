@@ -1,7 +1,8 @@
-<h1 class="md-display-1 user-title">My Posts</h1>
+<h1 class="md-display-1 user-title">My Likes</h1>
+
 
 <!-- Create the individual article cards -->
- <md-card layout="row" ng-repeat="article in main.myArticles | orderBy: '-timestamp'">
+ <md-card layout="row" ng-repeat="article in main.myLikes | orderBy: '-likeTime'">
   <img ng-src="{{article.images[0].url}}" class="md-card-image myarticle-image" alt="Washed Out">
 
   <div layout="column">

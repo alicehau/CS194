@@ -36,6 +36,10 @@ cs142App.config(['$routeProvider',
       templateUrl: 'components/user-posts/user-postsTemplate.html',
       controller: 'UserPostsController'
     }).
+    when('/userLikes', {
+      templateUrl: 'components/user-likes/user-likesTemplate.html',
+      controller: 'UserLikesController'
+    }).
     otherwise({
       redirectTo: '/login-register'
     });
