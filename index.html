@@ -56,10 +56,12 @@
          </h3>
          <!-- <a href="#/addArticle">Add Article</a> -->
          <span flex></span>
-         <section class="toolbar" layout="row"  ng-show="shared.authData">
-            <md-button class="groupX left" ng-class="shared.sidePaneReadingView ? 'toolbar-button-selected' : ''" ng-click="main.switchSidePane(true)">Read</md-button>
-            <md-button class="groupX middle" ng-class="!shared.sidePaneReadingView ? 'toolbar-button-selected' : ''"ng-click="main.switchSidePane(false)">Profile</md-button>
-            <md-button class="groupX right" ng-click="main.logout()">Logout</md-button>
+         <section class="toolbar" layout="row">
+            <div class="toolbar-buttons" ng-show="shared.authData">
+               <md-button class="groupX left" ng-class="shared.sidePaneReadingView ? 'toolbar-button-selected' : ''" ng-click="main.switchSidePane(true)">Read</md-button>
+               <md-button class="groupX middle" ng-class="!shared.sidePaneReadingView ? 'toolbar-button-selected' : ''"ng-click="main.switchSidePane(false)">Profile</md-button>
+               <md-button class="groupX right" ng-click="main.logout()">Logout</md-button>
+            </div>
          </section>
       </md-toolbar>
       <div class="container" flex layout="row">

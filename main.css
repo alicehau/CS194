@@ -40,6 +40,7 @@ md-sidenav.md-locked-open {
 .toolbar {
   float: right;
   padding-top: 68px;
+  min-height: 123px;
 }
 .md-button.toolbar-button-selected{
    font-weight: bold;
