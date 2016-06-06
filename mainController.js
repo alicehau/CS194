@@ -1,6 +1,7 @@
 'use strict';
 
 var cs142App = angular.module('cs142App', ['ngRoute', 'ngMaterial', 'firebase', 'ngSanitize']);
+console.log("asdf1");
 
 cs142App.factory("Auth", ["$firebaseAuth",
   function($firebaseAuth) {
@@ -50,8 +51,17 @@ cs142App.config(['$routeProvider',
 cs142App.controller('MainController', ['$scope', '$location', 'Auth',
   function($scope, $location, Auth) {
     $scope.main = {};
+    console.log("asdf");
 
 
+      var list = [];
+        for (var i = 0; i < 100; i++) {
+          list.push({
+            name: 'List Item ' + i,
+            idx: i
+          });
+        }
+        $scope.list = list;
 
     //store any shared variables between controllers
     $scope.shared = {};

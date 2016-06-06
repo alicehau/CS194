@@ -12,7 +12,10 @@ md-sidenav.md-locked-open {
   min-width: 400px;
   max-width: 400px;
 }
-
+.test{
+  height: 700px;
+  overflow: scroll;
+}
 .noozTitle {
   text-align: center;
   font-size: 80px;

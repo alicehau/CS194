@@ -3,7 +3,7 @@
 cs142App.controller('FollowerListController', ['$scope', '$firebaseArray','$routeParams', '$firebaseObject',
 function($scope, $firebaseArray, $routeParams, $firebaseObject) {
   $scope.main = {};
-  
+
   $scope.auth.$onAuth(function(authData) {
 
     $scope.main.followingIndex = 0;
@@ -30,11 +30,19 @@ function($scope, $firebaseArray, $routeParams, $firebaseObject) {
             }
       });
 
-    } 
+    }
   });
 
 
-  
+  var list = [];
+    for (var i = 0; i < 100; i++) {
+      list.push({
+        name: 'List Item ' + i,
+        idx: i
+      });
+    }
+    $scope.list = list;
+
 
 
   $scope.main.addLikes = function(articleObj, firebaseID, curatorID) {
@@ -118,7 +126,7 @@ function($scope, $firebaseArray, $routeParams, $firebaseObject) {
   };
 
   // $scope.main.showArticle = function(index) {
-    
+
   // }
 
   updateVisibleArticle();
