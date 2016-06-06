@@ -8,7 +8,7 @@
     <div >
       <div class="container">
         <div class="row">
-          <div ng-show="shared.viewMode == 'likesViewer' || 'myPostsViewer'" class="button-container">
+          <div ng-show="shared.viewMode == 'likesViewer' || shared.viewMode === 'myPostsViewer'" class="button-container">
             <md-button class="back-button" aria-label="Go Back" ng-click="main.backToLikes()">
                   <i class="material-icons">flip_to_back</i> Return
             </md-button>
