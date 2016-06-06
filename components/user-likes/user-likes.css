@@ -4,7 +4,7 @@
 }
 
 md-card md-card-title {
-  padding: 24px 16px 0px;
+  padding: 7px 16px 0px;
 }
 
 .myarticle-image {
@@ -84,4 +84,23 @@ md-list-item.md-no-proxy{
   width: 100%
   height: 2px;
   border-bottom: 1px solid #aaa;
+}
+
+.card-content {
+  position: relative;
+}
+
+
+
+.user-likes {
+  vertical-align: bottom;
+}
+.site-name {
+  position: absolute;
+  bottom: 11px;
+/*  margin-bottom: 5px;
+*/}
+
+.meta-info {
+  margin-left:20px;
 }
