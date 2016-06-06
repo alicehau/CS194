@@ -3,28 +3,36 @@
 
 <!-- Create the individual article cards -->
  <md-card layout="row" ng-repeat="article in main.myLikes | orderBy: '-likeTime'">
-  <a href="#/viewArticle/{{article.curatorID}}/{{article.firebaseID}}" style="text-decoration:none" ng-click="main.toggleViewMode()">
+  <div class="card-content">
+    <a href="#/viewArticle/{{article.curatorID}}/{{article.firebaseID}}" style="text-decoration:none" ng-click="main.toggleViewMode()">
 
-  <img ng-src="{{article.images[0].url}}" class="md-card-image myarticle-image" style="float:left" alt="Washed Out">
+    <img ng-src="{{article.images[0].url}}" class="md-card-image myarticle-image" style="float:left" alt="Washed Out">
 
-  <div layout="column">
-    <md-card-title>
-      <md-card-title-text class="myarticle-title">
-        <span >{{article.title}}</span>
-      </md-card-title-text>
-    </md-card-title>
-      <md-card-content ng-show="main.mode == 'static' || main.editIndex != $index">
-      <i class="material-icons" md-18>format_quote</i>
-      <span class="article-comment">
-        {{article.comment}}
-      </span>
-      <i class="material-icons" md-18>format_quote</i>
-      <span flex style ="text-transform: uppercase">
-        {{article.siteName}}
-      </span>
-      </md-card-content>
-  </div>
+    <div layout="column">
+      <md-card-title>
+        <md-card-title-text class="myarticle-title">
+          <span >{{article.title}}</span>
+        </md-card-title-text>
+      </md-card-title>
+        <md-card-content ng-show="main.mode == 'static' || main.editIndex != $index">
+        <div class="meta-info">
+        <i class="material-icons" md-18>format_quote</i>
+        <span class="article-comment">
+          {{article.comment}}
+        </span>
+        <i class="material-icons" md-18>format_quote</i>
+        
+          <span flex>
+            Shared by {{article.curatorName}}
+          </span>
+          <div flex style ="text-transform: uppercase" class="site-name">
+            {{article.siteName}}
+          </div>
+        </div>
+        </md-card-content>
+    </div>
     </a>
+  </div>
   <md-card-actions layout="row" layout-align="end center">
       <md-button class="md-icon-button" ng-click="deleteArticle(article.$id)" aria-label="Favorite">
         <md-icon><i class="material-icons">clear</i></md-icon>

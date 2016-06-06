@@ -15,6 +15,15 @@ function($scope, $firebaseArray, $routeParams, $firebaseObject) {
     var curatorRef = new Firebase("https://nooz.firebaseio.com/users/" + $scope.shared.authData.uid + "/following/");
     $scope.main.curators = $firebaseArray(curatorRef);
 
+    $scope.main.curators.$loaded().then(function () {
+      console.log("line 19 : " +$scope.main.curators.$keyAt(0));
+      var key = $scope.main.curators.$keyAt(0);
+      console.log(key);
+      var userID = $scope.main.curators.$getRecord(key);
+      console.log(userID.$value);
+      $scope.main.followingClickHandler(userID.$value, 0);
+    });
+
     var likesListRef = new Firebase("https://nooz.firebaseio.com/users/" + $scope.main.userID + "/likesIDArray/");
     $scope.main.likesIDArray = $firebaseArray(likesListRef);
 
@@ -66,29 +75,36 @@ function($scope, $firebaseArray, $routeParams, $firebaseObject) {
         $scope.main.likesArray = $firebaseArray(likesRef);
         articleObj.firebaseID = firebaseID;
         articleObj.curatorID = curatorID;
-        articleObj.likeTime = Firebase.ServerValue.TIMESTAMP;
-        $scope.main.likesArray.$add(articleObj).then(function(ref) {
-          $scope.main.articleFirebaseID = ref.key();
-          console.log($scope.main.articleFirebaseID);
-          var likeIDsRef = new Firebase("https://nooz.firebaseio.com/users/" + $scope.main.userID);
-          var obj = $firebaseObject(likeIDsRef);
-          obj.$loaded().then(function() {
-            if(!obj.likeIDs) { // if it doesn't exist, make it.
-              obj.likeIDs = {};
+        var curatorRef = new Firebase("https://nooz.firebaseio.com/users/" + curatorID + "/profile");
+        var curatorInfoObj = $firebaseObject(curatorRef);
+        curatorInfoObj.$loaded().then(function() {
+          var curatorName = curatorInfoObj['first_name'] + " " + curatorInfoObj['last_name'];
+          console.log("curator obj: " + curatorInfoObj['first_name']);
+          articleObj.curatorName = curatorName;
+          articleObj.likeTime = Firebase.ServerValue.TIMESTAMP;
+          $scope.main.likesArray.$add(articleObj).then(function(ref) {
+            $scope.main.articleFirebaseID = ref.key();
+            console.log($scope.main.articleFirebaseID);
+            var likeIDsRef = new Firebase("https://nooz.firebaseio.com/users/" + $scope.main.userID);
+            var obj = $firebaseObject(likeIDsRef);
+            obj.$loaded().then(function() {
+              if(!obj.likeIDs) { // if it doesn't exist, make it.
+                obj.likeIDs = {};
+                obj.$save();
+                console.log("empty object saved");
+              }
+              var articleID = String(firebaseID);
+              obj.likeIDs[articleID] = $scope.main.articleFirebaseID;
               obj.$save();
-              console.log("empty object saved");
-            }
-            var articleID = String(firebaseID);
-            obj.likeIDs[articleID] = $scope.main.articleFirebaseID;
-            obj.$save();
-            $scope.main.idArray = JSON.parse(JSON.stringify(obj.likeIDs));
+              $scope.main.idArray = JSON.parse(JSON.stringify(obj.likeIDs));
+            });
           });
         });
+
         // part 2
       }
 
   }
-
 
   /**
   * List of all articles reposted by the following person the user has selected
@@ -138,9 +154,6 @@ function($scope, $firebaseArray, $routeParams, $firebaseObject) {
     updateVisibleArticle(id);
   };
 
-  // $scope.main.showArticle = function(index) {
-
-  // }
 
   updateVisibleArticle();
 
