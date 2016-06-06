@@ -15,7 +15,7 @@
 <h1 style = "padding-left: 16px"> Currently Following </h2>
 <div class='md-padding' layout="row" layout-wrap>
    <md-card style="width: 300px;" ng-repeat="curator in main.curators">
-      <img ng-src="images/Calum.png" class="headshot-large"/>
+      <img ng-src="images/{{main.users.$getRecord(curator.$value).profile.first_name}}.png" class="headshot-large"/>
       <md-card-content>
          <h2 class="name-text">{{main.users.$getRecord(curator.$value).profile.first_name}} {{main.users.$getRecord(curator.$value).profile.last_name}}</h2>
          <p>{{main.users.$getRecord(curator.$value).profile.user_description}} </p>
