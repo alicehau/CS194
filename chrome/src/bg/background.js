@@ -6,7 +6,7 @@ var callback = function(response, url, comment){
   var responseJSON = JSON.parse(response).objects[0];
   responseJSON.comment = comment;
   // user who is posting this article
-  var userId = "191e913d-baf5-49c8-847a-f31f81f0f4b7";//Kirby Gee
+  var userId = "2dcd8477-d185-47fa-b6e6-a9e1e231f0a5";//Calum
   var firebaseConnection = new Firebase("https://nooz.firebaseio.com/users/" + userId + "/articles/");
   var newArticleRef = firebaseConnection.push();
   responseJSON.timestamp = Firebase.ServerValue.TIMESTAMP;

@@ -4,7 +4,7 @@
    <md-list layout="row">
       <md-list-item class="follower" ng-repeat="curator in main.curators" ng-class="main.highlight($index)">
          <span class="md-list-item-text" ng-click="main.followingClickHandler(curator.$value, $index)">
-            <img ng-src="images/Calum.png" class="headshot"/>
+            <img ng-src="images/{{main.users.$getRecord(curator.$value).profile.first_name}}.png" class="headshot"/>
             <div class="name-text">{{main.users.$getRecord(curator.$value).profile.first_name}}</div>
             <div class="name-text">{{main.users.$getRecord(curator.$value).profile.last_name}}</div>
          </span>
