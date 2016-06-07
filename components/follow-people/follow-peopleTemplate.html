@@ -1,10 +1,11 @@
 <h1 style = "padding-left: 16px">Curators to Follow</h2>
+<h3> <input type = "text" placeholder="Search..."  ng-model="searchCurators"/> </h3>
 <div class='md-padding' layout="row" layout-wrap>
-   <md-card style="width: 300px;" ng-repeat="user in main.leftToFollow">
+   <md-card style="width: 300px;" ng-repeat="user in main.leftToFollow | filter:main.searchCurators">
       <img ng-src="images/{{user.profile.first_name}}.png" class="headshot-large"/>
       <md-card-content>
-        <h2 class="name-text">{{user.profile.first_name}} {{user.profile.last_name}}</h2>
-        <p>{{user.profile.user_description}} </p>
+         <h2 class="name-text">{{user.profile.first_name + " " + user.profile.last_name}}</h2>
+          <p>{{user.profile.user_description}} </p>
       </md-card-content>
       <div class="md-actions" layout="row" layout-align="end center">
          <md-button ng-click="main.followUser(user.$id)" ng-class="main.highlight($index)">Follow</md-button>
@@ -13,8 +14,9 @@
 </div>
 
 <h1 style = "padding-left: 16px"> Currently Following </h2>
+<h3><input type = "text" placeholder="Search..." ng-model="searchText"/></h3> 
 <div class='md-padding' layout="row" layout-wrap>
-   <md-card style="width: 300px;" ng-repeat="curator in main.curators">
+   <md-card style="width: 300px;" ng-repeat="curator in main.curators | filter:main.searchFollowing">
       <img ng-src="images/{{main.users.$getRecord(curator.$value).profile.first_name}}.png" class="headshot-large"/>
       <md-card-content>
          <h2 class="name-text">{{main.users.$getRecord(curator.$value).profile.first_name}} {{main.users.$getRecord(curator.$value).profile.last_name}}</h2>

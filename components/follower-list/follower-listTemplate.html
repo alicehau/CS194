@@ -1,12 +1,13 @@
 <!-- Create the horizontal list of following users -->
 <h1 class="md-display-1 user-title" style="text-align: center">Following</h1>
+  <h4 align = "center" style = "padding-right: 10px"><input type = "text" style= "width: 85%" placeholder="Search..." class = "search" ng-model="main.searchText"/> </h4> 
 <div class="list-container">
    <md-list layout="row">
-      <md-list-item class="follower" ng-repeat="curator in main.curators" ng-class="main.highlight($index)">
+      <md-list-item class="follower" ng-repeat="curator in main.curators | filter:main.searchCurators" ng-class="main.highlight($index)">
          <span class="md-list-item-text" ng-click="main.followingClickHandler(curator.$value, $index)">
             <img ng-src="images/{{main.users.$getRecord(curator.$value).profile.first_name}}.png" class="headshot"/>
-            <div class="name-text">{{main.users.$getRecord(curator.$value).profile.first_name}}</div>
-            <div class="name-text">{{main.users.$getRecord(curator.$value).profile.last_name}}</div>
+            <div class="name-text">{{curator.first_name}}</div>
+            <div class="name-text">{{curator.last_name}}</div>
          </span>
       </md-list-item>
    </md-list>

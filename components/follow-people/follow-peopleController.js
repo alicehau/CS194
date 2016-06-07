@@ -24,6 +24,13 @@ cs142App.controller('FollowPeopleController', ['$scope', '$routeParams',
           });
     }
 
+    function getNames() {
+      angular.forEach($scope.main.curators, function(curator) {
+        curator.first_name = $scope.main.users.$getRecord(curator.$value).profile.first_name;
+        curator.last_name = $scope.main.users.$getRecord(curator.$value).profile.last_name;
+      });
+    }
+
     $scope.main.followUser = function(followId) {
       var followingRef = new Firebase("https://nooz.firebaseio.com/users/" + $scope.currUid + '/following');
       var following = $firebaseArray(followingRef);
@@ -35,6 +42,17 @@ cs142App.controller('FollowPeopleController', ['$scope', '$routeParams',
         });
     };
 
+    $scope.main.searchCurators = function(user) {
+      if ($scope.searchCurators == undefined) {
+        return true;
+      } else {
+        var name = user.profile.first_name + " " + user.profile.last_name;
+        if (name.toLowerCase().indexOf($scope.searchCurators.toLowerCase()) != -1) {
+            return true;
+        }
+        return false;
+      }
+    };
 
     function getUsersLeftToFollow() {
       $scope.main.leftToFollow = [];
@@ -49,10 +67,22 @@ cs142App.controller('FollowPeopleController', ['$scope', '$routeParams',
             $scope.main.leftToFollow.push(user);
           }
         });
+      getNames();
     }
 
 
-
+    $scope.main.searchFollowing = function(curator) {
+        if ($scope.searchText == undefined) {
+          console.log("not searching");
+          return true;
+        } else {
+          var name = curator.first_name + " " + curator.last_name;
+          if (name.toLowerCase().indexOf($scope.searchText.toLowerCase()) != -1) {
+              return true;
+          }
+          return false;
+        }
+    };
 
     $scope.addArticle = function() {
       var ref = new Firebase("https://nooz.firebaseio.com");

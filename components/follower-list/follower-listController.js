@@ -4,6 +4,13 @@ cs142App.controller('FollowerListController', ['$scope', '$firebaseArray','$rout
 function($scope, $firebaseArray, $routeParams, $firebaseObject, $location) {
   $scope.main = {};
 
+  function getNames() {
+    angular.forEach($scope.main.curators, function(curator) {
+      curator.first_name = $scope.main.users.$getRecord(curator.$value).profile.first_name;
+      curator.last_name = $scope.main.users.$getRecord(curator.$value).profile.last_name;
+    });
+  }
+
   $scope.shared.auth.$onAuth(function(authData) {
 
     $scope.main.followingIndex = 0;
@@ -20,6 +27,8 @@ function($scope, $firebaseArray, $routeParams, $firebaseObject, $location) {
       $scope.main.followingClickHandler(userID.$value, 0);
       $scope.main.currentCuratorID = userID.$value;
       //store a default article to show
+      getNames();
+
     });
 
     var likesListRef = new Firebase("https://nooz.firebaseio.com/users/" + $scope.main.userID + "/likesIDArray/");
@@ -49,6 +58,17 @@ function($scope, $firebaseArray, $routeParams, $firebaseObject, $location) {
     }
     $scope.list = list;
 
+  $scope.main.searchCurators = function(curator) {
+      if ($scope.main.searchText == undefined) {
+        return true;
+      } else {
+        var name = curator.first_name + " " + curator.last_name;
+        if (name.toLowerCase().indexOf($scope.main.searchText.toLowerCase()) != -1) {
+            return true;
+        }
+        return false;
+      }
+  };
 
   $scope.shared.testFunction = function() {
     console.log("called test function");

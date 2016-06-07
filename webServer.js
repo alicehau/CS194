@@ -31,19 +31,12 @@
  *
  */
 
-var mongoose = require('mongoose');
 var async = require('async');
-
-
-// Load the Mongoose schema for User, Photo, and SchemaInfo
-var User = require('./schema/user.js');
-var Photo = require('./schema/photo.js');
-var SchemaInfo = require('./schema/schemaInfo.js');
 
 var express = require('express');
 var app = express();
 
-mongoose.connect('mongodb://localhost/cs142project6');
+
 
 // We have the express static module (http://expressjs.com/en/starter/static-files.html) do all
 // the work for us.
